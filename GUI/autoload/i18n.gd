@@ -39,18 +39,10 @@ func _ready() -> void:
 		language = FileAccess.open(language_file, FileAccess.WRITE)
 		
 		var default_locale = OS.get_locale_language()
-		if !(default_locale in languages):
-			default_locale = "en"
-		
 		language.store_string(default_locale)
 		TranslationServer.set_locale(default_locale)
 	else:
 		var locale = language.get_as_text()
-		if !(locale in languages):
-			locale = "en"
-			language.close()
-			language = FileAccess.open(language_file, FileAccess.WRITE)
-			language.store_string(locale)
 		TranslationServer.set_locale(locale)
 
 func get_language_name(language: String) -> String:
