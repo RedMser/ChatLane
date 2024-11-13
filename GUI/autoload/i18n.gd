@@ -3,7 +3,11 @@ extends Node
 
 const language_file = "user://language"
 var languages := []
-const language_names := {}
+## Each language is given in its native language
+const language_names := {
+	"en": "English (US)",
+	"de": "Deutsch",
+}
 var language_flags := {}
 const NO_ICON = preload("res://no_icon.png")
 
@@ -44,6 +48,7 @@ func _ready() -> void:
 	else:
 		var locale = language.get_as_text()
 		TranslationServer.set_locale(locale)
+
 
 func get_language_name(language: String) -> String:
 	if language in language_names:

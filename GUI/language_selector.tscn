@@ -38,11 +38,12 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 40
-text = "Select a language:"
+text = "language-title"
 horizontal_alignment = 1
 
 [node name="Languages" type="ItemList" parent="VBoxContainer"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -60,7 +61,7 @@ size_flags_horizontal = 4
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_q1wgv")
-text = "Confirm"
+text = "language-confirm"
 
 [connection signal="item_activated" from="VBoxContainer/Languages" to="." method="_on_languages_item_activated"]
 [connection signal="item_selected" from="VBoxContainer/Languages" to="." method="_on_languages_item_selected"]

@@ -23,7 +23,8 @@ icon = ExtResource("2_bxjar")
 flat = true
 
 [node name="HelpDialog" type="AcceptDialog" parent="HBoxContainer/HelpButton"]
-title = "Help"
+title = "dialog-vc-section-help-title"
 initial_position = 2
+ok_button_text = "dialog-ok"
 
 [connection signal="pressed" from="HBoxContainer/HelpButton" to="HBoxContainer/HelpButton/HelpDialog" method="popup_centered"]

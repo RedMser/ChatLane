@@ -18,11 +18,11 @@ var custom_menu: Dictionary:
 
 
 func _ready() -> void:
-	%Icons.add_item("(No Icon)", IconDB.NO_ICON)
+	%Icons.add_item("placeholder-no-icon", IconDB.NO_ICON)
 	%Icons.set_item_icon_modulate(%Icons.item_count-1, IconDB.DARK_COLOR)
 	for id in IconDB.ICON_LIST.keys():
 		var icon = IconDB.ICON_LIST[id]
-		%Icons.add_item(icon.label, icon.texture)
+		%Icons.add_item("icon-" + id, icon)
 		%Icons.set_item_icon_modulate(%Icons.item_count-1, IconDB.DARK_COLOR)
 
 
@@ -60,7 +60,7 @@ func update_custom_menu():
 
 func _on_name_text_changed(new_text: String) -> void:
 	if new_text.is_empty():
-		new_text = "(Unnamed)"
+		new_text = tr("placeholder-unnamed")
 	custom_menu["name"] = new_text
 	updated.emit()
 	Config.has_unsaved_changes = true
@@ -70,6 +70,7 @@ func _on_icons_item_selected(index: int) -> void:
 	if index <= 0:
 		custom_menu["icon"] = null
 	else:
+		# TODO: shouldn't rely on order of dicts to stay same in future -> use item metadata
 		custom_menu["icon"] = IconDB.ICON_LIST.keys()[index-1]
 	updated.emit()
 	Config.has_unsaved_changes = true

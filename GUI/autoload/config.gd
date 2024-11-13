@@ -61,7 +61,11 @@ func save_cfg() -> String:
 
 func validate(actual, expect, message: String) -> bool:
 	if expect != actual:
-		error.emit("%s (expected %s but got %s)" % [message, str(expect), str(actual)])
+		error.emit(
+			tr(TranslationFluent.args("config-validation-error-template", {
+				"message": message, "expect": str(expect), "actual": str(actual)
+			}))
+		)
 		return false
 	return true
 

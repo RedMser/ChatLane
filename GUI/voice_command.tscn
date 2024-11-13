@@ -27,7 +27,7 @@ layout_mode = 2
 [node name="Enabled" type="CheckBox" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
-tooltip_text = "Whether this voice command should be selectable in the in-game settings."
+tooltip_text = "vc-enabled-tooltip"
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -37,7 +37,7 @@ text = "VoiceCommand"
 [node name="Delete" type="Button" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
-tooltip_text = "Delete voice command from this menu."
+tooltip_text = "vc-delete-tooltip"
 icon = ExtResource("2_ddif4")
 
 [connection signal="toggled" from="HBoxContainer/Enabled" to="." method="_on_enabled_toggled"]

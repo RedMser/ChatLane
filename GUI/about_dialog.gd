@@ -16,10 +16,11 @@ func load_rtl():
 		OS.shell_open(str(data))
 	)
 	
+	var app_name = ProjectSettings.get_setting("application/config/name")
 	rtl.push_paragraph(HORIZONTAL_ALIGNMENT_CENTER)
 	rtl.push_font_size(30)
 	rtl.push_meta("https://github.com/redmser/chatlane")
-	rtl.add_text("ChatLane\n")
+	rtl.add_text(app_name + "\n")
 	rtl.pop() # meta
 	rtl.pop() # font_size
 	rtl.add_text("\n\n")
@@ -27,12 +28,12 @@ func load_rtl():
 	rtl.add_text("\n\n")
 	rtl.pop() # center
 	rtl.push_font_size(20)
-	rtl.add_text("Developed by RedMser, released under MIT license\n")
+	rtl.add_text(tr("about-1") + "\n")
 	rtl.pop() # font_size
-	rtl.add_text("For more information on licensing, usage and third-party software, see the repository or the included README.md file.\n\n")
+	rtl.add_text(tr("about-2") + "\n\n")
 	
 	rtl.push_font_size(20)
-	rtl.add_text("Godot Engine license info\n\n")
+	rtl.add_text("Godot Engine\n\n")
 	rtl.pop() # font_size
 	rtl.add_text(Engine.get_license_text())
 	
@@ -45,7 +46,11 @@ func load_rtl():
 				cc.append_array(p.copyright)
 			if !(p.license in cl):
 				cl.append(p.license)
-		rtl.add_text("%s (c) %s licensed under %s\n" % [c.name, ", ".join(cc), ", ".join(cl)])
+		rtl.add_text(
+			tr(TranslationFluent.args("about-copyright", {
+				"name": c.name, "copyright": ", ".join(cc), "license": ", ".join(cl)
+			})) + "\n"
+		)
 	
 	rtl.add_text("\n\n\n")
 	

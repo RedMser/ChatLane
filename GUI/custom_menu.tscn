@@ -35,7 +35,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "Name: "
+text = "cm-name"
 
 [node name="Name" type="LineEdit" parent="HBoxContainer"]
 unique_name_in_owner = true
@@ -44,17 +44,18 @@ size_flags_horizontal = 3
 
 [node name="DeleteMenu" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Delete Menu"
+text = "cm-delete"
 icon = ExtResource("2_cp2cs")
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="HBoxContainer/DeleteMenu"]
-ok_button_text = "Delete"
-dialog_text = "Delete this custom menu?
-You will permanently lose all changes done to it."
+title = "dialog-delete-menu-title"
+ok_button_text = "dialog-delete-menu-ok"
+dialog_text = "dialog-delete-menu-text"
+cancel_button_text = "dialog-cancel"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-text = "Icon:"
+text = "cm-icon"
 
 [node name="Icons" type="ItemList" parent="."]
 unique_name_in_owner = true
@@ -66,7 +67,7 @@ fixed_icon_size = Vector2i(70, 70)
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
-text = "Voice Commands:"
+text = "cm-items"
 
 [node name="VoiceCommandsList" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -78,7 +79,7 @@ script = ExtResource("2_lfog6")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 1
-text = "Drag & Drop voice commands from the left list into here to add them to this menu."
+text = "cm-items-empty-state"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
