@@ -18,6 +18,19 @@ func _init() -> void:
 
 func _ready() -> void:
 	_on_config_loaded()
+	
+	%LanguageChange.icon = I18n.language_flags[TranslationServer.get_locale()]
+	var lang_menu: PopupMenu = %LanguageChange.get_popup()
+	lang_menu.add_theme_constant_override("icon_max_width", 40)
+	for language in I18n.languages:
+		lang_menu.add_icon_item(I18n.language_flags[language], I18n.get_language_name(language))
+	lang_menu.index_pressed.connect(func(idx):
+		var language = I18n.languages[idx]
+		TranslationServer.set_locale(language)
+		%LanguageChange.icon = I18n.language_flags[language]
+		var language_file = FileAccess.open(I18n.language_file, FileAccess.WRITE)
+		language_file.store_string(language)
+	)
 
 
 func _notification(what: int) -> void:
@@ -123,7 +136,7 @@ func _on_save_dialog_file_selected(path: String) -> void:
 	$Spinner.set_visible_soon(true)
 	
 	Config.config_name = path.get_file().get_basename()
-	$MenuBar/ConfigName.text = Config.config_name
+	%ConfigName.text = Config.config_name
 
 	var ext = path.to_lower().get_extension()
 	var yaml = Config.save_cfg()
@@ -159,7 +172,7 @@ func _on_config_loaded() -> void:
 	if not is_node_ready():
 		return
 	
-	$MenuBar/ConfigName.text = Config.config_name
+	%ConfigName.text = Config.config_name
 	
 	const VoiceCommand = preload("res://voice_command.gd")
 	for child in %VoiceLines.get_children():

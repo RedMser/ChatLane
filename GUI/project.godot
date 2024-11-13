@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ChatLane"
-run/main_scene="res://root.tscn"
+run/main_scene="res://empty.tscn"
 config/auto_accept_quit=false
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/low_processor_mode=true
@@ -22,7 +22,8 @@ config/icon="res://logo.png"
 
 [autoload]
 
-I18n="res://autoload/i18n.gd"
+I18n="*res://autoload/i18n.gd"
+FirstLaunch="*res://autoload/first_launch.gd"
 Config="*res://autoload/config.gd"
 CLI="*res://autoload/cli.gd"
 IconDB="*res://autoload/icon_db.gd"

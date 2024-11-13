@@ -64,18 +64,29 @@ item_1/separator = true
 item_2/text = "About..."
 item_2/id = 2
 
-[node name="ConfigName" type="Label" parent="MenuBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBar"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -39.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
+alignment = 2
+
+[node name="ConfigName" type="Label" parent="MenuBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_bf3um")
 text = "Config Name"
 horizontal_alignment = 2
+
+[node name="LanguageChange" type="MenuButton" parent="MenuBar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

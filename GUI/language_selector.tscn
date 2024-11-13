@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c41wljf4scw0k"]
+
+[ext_resource type="Script" path="res://language_selector.gd" id="1_q1wgv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86yv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1wgv"]
+content_margin_left = 60.0
+content_margin_top = 18.0
+content_margin_right = 60.0
+content_margin_bottom = 18.0
+bg_color = Color(1, 0.98634, 0.9078, 1)
+border_color = Color(1, 1, 0.98345, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
+anti_aliasing = false
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("1_q1wgv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 40
+text = "Select a language:"
+horizontal_alignment = 1
+
+[node name="Languages" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxEmpty_86yv4")
+auto_width = true
+auto_height = true
+max_columns = 2
+fixed_column_width = 200
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 160)
+
+[node name="Confirm" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_q1wgv")
+text = "Confirm"
+
+[connection signal="item_activated" from="VBoxContainer/Languages" to="." method="_on_languages_item_activated"]
+[connection signal="item_selected" from="VBoxContainer/Languages" to="." method="_on_languages_item_selected"]
+[connection signal="pressed" from="VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
