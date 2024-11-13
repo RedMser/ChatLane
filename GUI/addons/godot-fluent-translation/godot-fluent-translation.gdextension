@@ -1,0 +1,7 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.3
+reloadable = true
+
+[libraries]
+windows.x86_64 = "res://addons/godot-fluent-translation/release/godot_fluent_translation.dll"

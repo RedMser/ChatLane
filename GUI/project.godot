@@ -22,6 +22,7 @@ config/icon="res://logo.png"
 
 [autoload]
 
+I18n="res://autoload/i18n.gd"
 Config="*res://autoload/config.gd"
 CLI="*res://autoload/cli.gd"
 IconDB="*res://autoload/icon_db.gd"
@@ -35,6 +36,11 @@ window/energy_saving/keep_screen_on=false
 [gui]
 
 theme/custom="res://theme.res"
+
+[internationalization]
+
+fluent/loader/locale_by_folder_regex=""
+fluent/loader/locale_by_file_regex="(.+)\\.ftl$"
 
 [physics]
 
