@@ -1,0 +1,467 @@
+[gd_scene load_steps=17 format=3 uid="uid://8y6m86pylxc3"]
+
+[ext_resource type="PackedScene" uid="uid://c2igoqwjkmkbo" path="res://voice_command_section.tscn" id="1_pq8q7"]
+[ext_resource type="Script" path="res://root.gd" id="1_vyht1"]
+[ext_resource type="FontFile" uid="uid://ibm63svw370k" path="res://fonts/Montserrat-Italic.ttf" id="2_bf3um"]
+[ext_resource type="Texture2D" uid="uid://b5w5tr85okcu5" path="res://fontawesome/file.svg" id="2_qwhpj"]
+[ext_resource type="PackedScene" uid="uid://bb45jskpc0d1x" path="res://voice_command.tscn" id="3_28aoi"]
+[ext_resource type="Texture2D" uid="uid://bqsbm57nj3hyw" path="res://fontawesome/folder-open.svg" id="3_qt76e"]
+[ext_resource type="Texture2D" uid="uid://tusu7re382fp" path="res://fontawesome/search.svg" id="4_sq7yr"]
+[ext_resource type="PackedScene" uid="uid://bwbjiw3xh6mep" path="res://custom_menu.tscn" id="5_jnlp7"]
+[ext_resource type="Texture2D" uid="uid://dpl5iiaroovxg" path="res://fontawesome/save.svg" id="5_r3r3k"]
+[ext_resource type="Texture2D" uid="uid://ij7rdcds3rwr" path="res://fontawesome/share-square.svg" id="6_blcw0"]
+[ext_resource type="Script" path="res://unsaved_exit_confirm.gd" id="6_l8v81"]
+[ext_resource type="Script" path="res://about_dialog.gd" id="7_vyht1"]
+[ext_resource type="Script" path="res://spinner.gd" id="8_bf3um"]
+[ext_resource type="Texture2D" uid="uid://b756yecrsww0j" path="res://fontawesome/plus-square.svg" id="10_50g4q"]
+[ext_resource type="Script" path="res://unsaved_load_confirm.gd" id="13_qt76e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf3um"]
+bg_color = Color(0.422436, 0.632692, 0.430069, 1)
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vyht1")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 2
+flat = true
+
+[node name="File" type="PopupMenu" parent="MenuBar"]
+size = Vector2i(215, 181)
+item_count = 7
+item_0/text = "New Config..."
+item_0/icon = ExtResource("2_qwhpj")
+item_0/id = 1
+item_1/id = 0
+item_1/separator = true
+item_2/text = "Load..."
+item_2/icon = ExtResource("3_qt76e")
+item_2/id = 2
+item_3/text = "Locate add-on VPKs..."
+item_3/icon = ExtResource("4_sq7yr")
+item_3/id = 5
+item_4/text = "Save..."
+item_4/icon = ExtResource("5_r3r3k")
+item_4/id = 3
+item_5/id = 0
+item_5/separator = true
+item_6/text = "Quit"
+item_6/id = 4
+
+[node name="Help" type="PopupMenu" parent="MenuBar"]
+size = Vector2i(191, 100)
+item_count = 3
+item_0/text = "GitHub Repository"
+item_0/icon = ExtResource("6_blcw0")
+item_0/id = 1
+item_1/id = 0
+item_1/separator = true
+item_2/text = "About..."
+item_2/id = 2
+
+[node name="ConfigName" type="Label" parent="MenuBar"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_bf3um")
+text = "Config Name"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Voice Commands"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VoiceLines" type="VBoxContainer" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VoiceCommandSection" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
+layout_mode = 2
+text = "Default"
+
+[node name="Can Heal" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Defend Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Going In" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Good Job" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Headed to Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Headed To Shop$SLASH$Base" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Headed To Shop/Base"
+
+[node name="Help With Idol" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Help" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Need Heal" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Push Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Retreat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Sorry" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Stay Together" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Thanks" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="Need Plan" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "What's the Plan?"
+
+[node name="You\'re Welcome" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+
+[node name="VoiceCommandSection2" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
+layout_mode = 2
+text = "Hidden"
+help_text = "While these voice lines can be used in game, they can't be selected as Chat Wheel options by default.
+Tick the checkbox to allow assigning them in the game settings."
+
+[node name="Defend Blue" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Defend Green" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Defend Purple" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Defend Yellow" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Good Game (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Good Game [ALL CHAT]"
+show_enabled_checkbox = true
+
+[node name="Headed to Blue Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Headed to Blue"
+show_enabled_checkbox = true
+
+[node name="Heading to Green Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Headed to Green"
+show_enabled_checkbox = true
+
+[node name="Headed to Purple Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Headed to Purple"
+show_enabled_checkbox = true
+
+[node name="Heading to Yellow Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Headed to Yellow"
+show_enabled_checkbox = true
+
+[node name="Push Blue" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Push Green" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Push Purple" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Push Yellow" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="VoiceCommandSection3" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
+layout_mode = 2
+text = "Work in Progress"
+help_text = "These voice lines are not fully implemented for every character yet. You may hear nothing when using these, depending on your hero.
+Tick the checkbox to allow selecting them in the Chat Wheel settings in-game."
+
+[node name="No" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="On My Way" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="Yes" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+show_enabled_checkbox = true
+
+[node name="VoiceCommandSection4" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
+layout_mode = 2
+text = "Broken / Internal"
+help_text = "Some voice lines are used internally (for post-game chat), or are broken when selected from the chat wheel (e.g. ping voice lines that need a target entity).
+Tick the checkbox to allow selecting them via the in-game settings, at your own risk."
+
+[node name="Good Job (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Good Job (Post Game)"
+show_enabled_checkbox = true
+
+[node name="Thanks (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Thanks (Post Game)"
+show_enabled_checkbox = true
+
+[node name="Well Played (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Well Played (Post Game)"
+show_enabled_checkbox = true
+
+[node name="Missing" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "(Enemy) is Missing"
+show_enabled_checkbox = true
+
+[node name="Pinged Enemy Player" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "I see (Enemy)"
+show_enabled_checkbox = true
+
+[node name="Pinged Teammate" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Careful (Teammate)"
+show_enabled_checkbox = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Custom Menus"
+horizontal_alignment = 1
+
+[node name="CustomMenus" type="ItemList" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+auto_height = true
+max_columns = 0
+icon_mode = 0
+fixed_icon_size = Vector2i(100, 100)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="AddCustomMenu" type="Button" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Custom Menu"
+icon = ExtResource("10_50g4q")
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="CustomMenuEditor" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer" instance=ExtResource("5_jnlp7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Load" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Load chat wheel options from a previously saved VPK add-on."
+text = "Load..."
+icon = ExtResource("3_qt76e")
+
+[node name="Save" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Save chat wheel options as a VPK add-on."
+text = "Save..."
+icon = ExtResource("5_r3r3k")
+
+[node name="ResetToDefaultConfirm" type="ConfirmationDialog" parent="."]
+title = "Reset Config?"
+initial_position = 2
+size = Vector2i(759, 107)
+ok_button_text = "Reset all settings"
+dialog_text = "Would you like to reset all settings to their default?
+You can always disable the chat wheel add-on by removing or renaming the .vpk file instead."
+
+[node name="UnsavedExitConfirm" type="ConfirmationDialog" parent="."]
+auto_translate_mode = 1
+title = "Save changes?"
+initial_position = 2
+size = Vector2i(781, 107)
+ok_button_text = "Save and Quit..."
+dialog_text = "You have unsaved changes!
+Please save your changes as a VPK add-on if you want to use them."
+script = ExtResource("6_l8v81")
+
+[node name="UnsavedLoadConfirm" type="ConfirmationDialog" parent="."]
+auto_translate_mode = 1
+title = "Save changes?"
+initial_position = 2
+size = Vector2i(781, 107)
+ok_button_text = "Save..."
+dialog_text = "You have unsaved changes!
+Please save your changes as a VPK add-on if you want to use them."
+script = ExtResource("13_qt76e")
+
+[node name="AboutDialog" type="Window" parent="."]
+title = "About"
+initial_position = 2
+size = Vector2i(500, 500)
+visible = false
+script = ExtResource("7_vyht1")
+
+[node name="MarginContainer" type="MarginContainer" parent="AboutDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AboutDialog/MarginContainer"]
+layout_mode = 2
+focus_mode = 2
+context_menu_enabled = true
+threaded = true
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="LocateDialog" type="FileDialog" parent="."]
+title = "Select your Deadlock addons folder to discover which VPKs contain chat wheel config"
+initial_position = 2
+ok_button_text = "Select Current Folder"
+mode_overrides_title = false
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="LoadDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Load VPK file"
+initial_position = 2
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+filters = PackedStringArray("pak*_dir.vpk;VPK Addon", "*.yml,*.yaml;Chat Wheel Config")
+use_native_dialog = true
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Save VPK file"
+initial_position = 2
+ok_button_text = "Save"
+mode_overrides_title = false
+access = 2
+filters = PackedStringArray("*.vpk;VPK File", "*.yml,*.yaml;Chat Wheel Config")
+use_native_dialog = true
+
+[node name="AlertDialog" type="AcceptDialog" parent="."]
+
+[node name="Spinner" type="ProgressBar" parent="."]
+process_mode = 4
+visible = false
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_bf3um")
+show_percentage = false
+script = ExtResource("8_bf3um")
+
+[connection signal="id_pressed" from="MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="MenuBar/Help" to="." method="_on_help_id_pressed"]
+[connection signal="item_selected" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/CustomMenus" to="." method="update_custom_menu_editor" unbinds=1]
+[connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/HBoxContainer/AddCustomMenu" to="." method="_on_add_custom_menu_pressed"]
+[connection signal="delete" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/CustomMenuEditor" to="." method="_on_custom_menu_editor_delete"]
+[connection signal="updated" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/CustomMenuEditor" to="." method="_on_custom_menu_editor_updated"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Load" to="." method="load_cfg"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Save" to="." method="save_cfg"]
+[connection signal="confirmed" from="ResetToDefaultConfirm" to="." method="_on_reset_to_default_confirm_confirmed"]
+[connection signal="confirmed" from="UnsavedExitConfirm" to="." method="_on_unsaved_confirm_confirmed" binds= ["exit"]]
+[connection signal="confirmed" from="UnsavedLoadConfirm" to="." method="_on_unsaved_confirm_confirmed" binds= ["load"]]
+[connection signal="discard_changes" from="UnsavedLoadConfirm" to="." method="_on_unsaved_load_confirm_discard_changes"]
+[connection signal="dir_selected" from="LocateDialog" to="." method="_on_locate_dialog_dir_selected"]
+[connection signal="file_selected" from="LoadDialog" to="." method="_on_load_dialog_file_selected"]
+[connection signal="file_selected" from="SaveDialog" to="." method="_on_save_dialog_file_selected"]

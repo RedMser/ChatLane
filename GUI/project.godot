@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ChatLane"
+run/main_scene="res://root.tscn"
+config/auto_accept_quit=false
+config/features=PackedStringArray("4.4", "GL Compatibility")
+run/low_processor_mode=true
+boot_splash/bg_color=Color(0.615686, 0.572549, 0.486275, 1)
+boot_splash/image="res://splash.png"
+boot_splash/fullsize=false
+config/icon="res://logo.png"
+
+[autoload]
+
+Config="*res://autoload/config.gd"
+CLI="*res://autoload/cli.gd"
+IconDB="*res://autoload/icon_db.gd"
+
+[display]
+
+window/size/viewport_width=1234
+window/size/viewport_height=800
+window/energy_saving/keep_screen_on=false
+
+[gui]
+
+theme/custom="res://theme.res"
+
+[physics]
+
+2d/physics_engine="Dummy"
+3d/physics_engine="Dummy"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.93, 0.9114, 0.8184, 1)

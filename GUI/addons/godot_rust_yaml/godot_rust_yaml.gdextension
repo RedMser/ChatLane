@@ -1,0 +1,6 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.1
+
+[libraries]
+windows.x86_64 = "res://addons/godot_rust_yaml/win64/godot_rust_yaml.dll"

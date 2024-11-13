@@ -1,0 +1,79 @@
+# You likely want to use the GUI to create a .yml file like this one, and the corresponding .vpk addon!
+# The GUI has better labels and categories for each of the entries. Continue reading if you want to dig deeper instead.
+#
+# List of voice commands:
+#
+# "Can Heal"
+# "Defend Blue"
+# "Defend Green"
+# "Defend Lane"
+# "Defend Purple"
+# "Defend Yellow"
+# "Going In"
+# "Good Game (Post Game) - All Chat"
+# "Good Job (Post Game) - All Chat"
+# "Good Job"
+# "Headed to Blue Subnav"
+# "Headed to Lane"
+# "Headed to Purple Subnav"
+# "Headed To Shop/Base"
+# "Heading to Green Subnav"
+# "Heading to Yellow Subnav"
+# "Help With Idol"
+# "Help"
+# "Missing"
+# "Need Heal"
+# "Need Plan"
+# "No"
+# "On My Way"
+# "Pinged Enemy Player"
+# "Pinged Teammate"
+# "Push Blue"
+# "Push Green"
+# "Push Lane"
+# "Push Purple"
+# "Push Yellow"
+# "Retreat"
+# "Sorry"
+# "Stay Together"
+# "Thanks (Post Game) - All Chat"
+# "Thanks"
+# "Well Played (Post Game) - All Chat"
+# "Yes"
+# "You're Welcome"
+#
+# List of chat wheel icons you can use:
+#
+# "defend"
+# "going_in"
+# "group_up"
+# "heal"
+# "heart"
+# "help"
+# "question"
+# "quick"
+# "retreat"
+# "shop"
+# "thanks"
+
+name: "Example Config"
+
+override_bindable:
+  "Good Game (Post Game) - All Chat": true
+  "No": true
+  "On My Way": true
+  "Yes": true
+  "Well Played (Post Game) - All Chat": true
+
+custom_menus:
+  - name: "First Menu"
+    icon: "thanks"
+    items:
+    - "Sorry"
+    - "Thanks"
+    - "You're Welcome"
+  - name: "Second Menu"
+    icon: "question"
+    items:
+    - "Help"
+    - "Need Plan"

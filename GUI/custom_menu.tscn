@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwbjiw3xh6mep"]
+
+[ext_resource type="Script" path="res://custom_menu.gd" id="1_lfog6"]
+[ext_resource type="Texture2D" uid="uid://dwe25n6wnjvu0" path="res://fontawesome/times-circle.svg" id="2_cp2cs"]
+[ext_resource type="Script" path="res://voice_commands_list.gd" id="2_lfog6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnlp7"]
+content_margin_left = 5.0
+content_margin_top = 4.0
+content_margin_right = 5.0
+content_margin_bottom = 4.0
+bg_color = Color(0.87, 0.858255, 0.7917, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.68, 0.67014, 0.4828, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+anti_aliasing = false
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lfog6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Name: "
+
+[node name="Name" type="LineEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteMenu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Delete Menu"
+icon = ExtResource("2_cp2cs")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="HBoxContainer/DeleteMenu"]
+ok_button_text = "Delete"
+dialog_text = "Delete this custom menu?
+You will permanently lose all changes done to it."
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Icon:"
+
+[node name="Icons" type="ItemList" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+auto_height = true
+max_columns = 0
+icon_mode = 0
+fixed_icon_size = Vector2i(70, 70)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "Voice Commands:"
+
+[node name="VoiceCommandsList" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jnlp7")
+script = ExtResource("2_lfog6")
+
+[node name="EmptyState" type="Label" parent="VoiceCommandsList"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Drag & Drop voice commands from the left list into here to add them to this menu."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VoiceCommandsList"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VoiceCommandsList/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Items" type="VBoxContainer" parent="VoiceCommandsList/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[connection signal="text_changed" from="HBoxContainer/Name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="HBoxContainer/DeleteMenu" to="HBoxContainer/DeleteMenu/ConfirmationDialog" method="popup_centered"]
+[connection signal="confirmed" from="HBoxContainer/DeleteMenu/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="item_selected" from="Icons" to="." method="_on_icons_item_selected"]
+[connection signal="add" from="VoiceCommandsList" to="." method="_on_voice_commands_list_add"]
+[connection signal="delete" from="VoiceCommandsList" to="." method="_on_voice_commands_list_delete"]
+[connection signal="move" from="VoiceCommandsList" to="." method="_on_voice_commands_list_move"]
