@@ -132,6 +132,7 @@ layout_mode = 2
 
 [node name="Defend Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
+label = "Defend Lane ..."
 
 [node name="Going In" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
@@ -141,6 +142,7 @@ layout_mode = 2
 
 [node name="Headed to Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
+label = "Headed to Lane ..."
 
 [node name="Headed To Shop$SLASH$Base" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
@@ -157,6 +159,7 @@ layout_mode = 2
 
 [node name="Push Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
+label = "Push Lane ..."
 
 [node name="Retreat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
