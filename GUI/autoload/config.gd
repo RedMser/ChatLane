@@ -4,6 +4,7 @@ signal error(message: String)
 signal loaded
 signal unsaved_status_changed
 
+var is_loading := false
 var has_unsaved_changes := false:
 	set(value):
 		var old_value = has_unsaved_changes
@@ -22,11 +23,13 @@ func _init() -> void:
 
 func reset_cfg(emit := true) -> void:
 	config_name = "new_config"
-	override_bindable = {}
+	override_bindable = { "Missing": true }
 	custom_menus = []
 
 	if emit:
+		is_loading = true
 		loaded.emit()
+		is_loading = false
 
 
 func load_cfg(yaml: String) -> void:
@@ -47,7 +50,9 @@ func load_cfg(yaml: String) -> void:
 		ensure(data["custom_menus"].all(func(i): return typeof(i) == TYPE_DICTIONARY), "custom_menus has a non-dictionary item"):
 		custom_menus = data["custom_menus"]
 	
+	is_loading = true
 	loaded.emit()
+	is_loading = false
 
 
 func save_cfg() -> String:

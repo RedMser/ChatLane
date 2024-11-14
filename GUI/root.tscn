@@ -283,6 +283,7 @@ show_enabled_checkbox = true
 layout_mode = 2
 label = "(Enemy) is Missing"
 show_enabled_checkbox = true
+is_enabled = true
 
 [node name="Pinged Enemy Player" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2

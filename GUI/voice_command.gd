@@ -25,12 +25,14 @@ signal delete
 		if is_node_ready():
 			$HBoxContainer/Delete.visible = value
 var drag_context := "list"
+var is_enabled_by_default: bool
 
 
 func _ready():
 	update_display_text()
 	show_enabled_checkbox = show_enabled_checkbox
 	is_enabled = is_enabled
+	is_enabled_by_default = is_enabled
 	show_delete_button = show_delete_button
 
 
@@ -63,8 +65,11 @@ func _on_enabled_toggled(toggled_on: bool) -> void:
 		return
 	if Engine.is_editor_hint():
 		return
-	# makes little sense to write a "false" to bindable explicitly
-	if toggled_on:
+	if Config.is_loading or not get_tree().current_scene.is_node_ready():
+		# only user interaction should be tracked, not _ready or config load
+		return
+	# makes little sense to write the default value to bindable explicitly
+	if toggled_on != is_enabled_by_default:
 		Config.override_bindable[get_id()] = toggled_on
 	else:
 		Config.override_bindable.erase(get_id())
