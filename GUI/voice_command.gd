@@ -61,6 +61,8 @@ func _on_delete_pressed() -> void:
 func _on_enabled_toggled(toggled_on: bool) -> void:
 	if !show_enabled_checkbox:
 		return
+	if Engine.is_editor_hint():
+		return
 	# makes little sense to write a "false" to bindable explicitly
 	if toggled_on:
 		Config.override_bindable[get_id()] = toggled_on
