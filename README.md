@@ -23,16 +23,22 @@ To get ChatLane, download the [latest release's](https://github.com/redmser/chat
 
 Extract everything somewhere, then run the `ChatLane-GUI.exe` file.
 
+![Installation instruction step 1](docs/installation-1.png)
+
 On the left, you have an overview of all voice commands in the game.
 Those with a checkmark are hidden by default, for various reasons (see the corresponding headers in the list for more info).
 You can enable them so that they show up in the "Chat Wheel" settings of Deadlock as additional options.
+
+![Installation instruction step 2](docs/installation-2.png)
 
 On the right you can define custom menus.
 Create a new menu, give it a name and icon, then you can decide what voice lines should be inside.
 Use drag and drop from the left list onto the right box to assign voice lines to the menu. You can also use drag and drop to re-arrange the elements inside the list.
 When in-game, you will see the new custom menus you've created at the bottom of the "Chat Wheel" settings.
 
-In order to actually save your changes, you must set up your Deadlock for modding.
+![Installation instruction step 3](docs/installation-3.png)
+
+In order to be able to see your changes, you must set up your Deadlock for modding.
 
 <details>
 <summary>Click here to learn how to install add-ons for Deadlock.</summary>
@@ -65,6 +71,8 @@ The `XX` numbers usually don't matter, as long as you start with `02` and keep c
 
 Once done, ChatLane can directly save `pakXX_dir.vpk` files without any intermediate steps! Just place it in the `addons` folder and you're done.
 
+![Installation instruction step 4](docs/installation-4.png)
+
 Open the game's settings and go to the Chat Wheel tab. This should now feature your new custom menus at the bottom, as well as any hidden voice commands you've decided to enable.
 
 If you later want to edit your config, you can simply load the VPK file again, do your changes, then save and overwrite it.
@@ -79,7 +87,7 @@ Entries in this list can not be fixed easily, due to how the chat wheel system o
 - A custom menu can have up to 12 entries, filling up the entire circle.
 - Having multiple menus on the wheel causes the menu to show incorrect contents.
 - Menus sometimes open in the wrong direction, making them unusable. Simply bind them to another direction.
-- A voice line plays when you select a custom menu (when not selecting one of its entries). No one can hear or see this if you're not the server (TODO confirm this).
+- A placeholder voice line plays when you select a custom menu (when not selecting one of its entries).
 
 For any other bugs, it's either an issue with ChatLane, or a new game update broke the add-on. In either case, feel free to open an issue so that we can figure it out!
 
