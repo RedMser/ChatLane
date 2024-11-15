@@ -410,6 +410,8 @@ title = "dialog-about-title"
 initial_position = 2
 size = Vector2i(500, 500)
 visible = false
+transient = true
+exclusive = true
 script = ExtResource("7_vyht1")
 
 [node name="MarginContainer" type="MarginContainer" parent="AboutDialog"]
