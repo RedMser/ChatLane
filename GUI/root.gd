@@ -31,11 +31,17 @@ func _ready() -> void:
 		var language_file = FileAccess.open(I18n.language_file, FileAccess.WRITE)
 		language_file.store_string(language)
 	)
-	
-	# TODO: workaround (see https://github.com/godotengine/godot/issues/99207 )
-	$LoadDialog.title = tr($LoadDialog.title)
-	$SaveDialog.title = tr($SaveDialog.title)
-	$LocateDialog.title = tr($LocateDialog.title)
+	var make_shortcut = func(action):
+		var s = Shortcut.new()
+		var e = InputEventAction.new()
+		e.action = action
+		e.pressed = true
+		s.events.append(e)
+		return s
+	$"MenuBar/menu-file".set_item_shortcut(0, make_shortcut.call("file-new"))
+	$"MenuBar/menu-file".set_item_shortcut(2, make_shortcut.call("file-open"))
+	$"MenuBar/menu-file".set_item_shortcut(4, make_shortcut.call("file-save"))
+	$"MenuBar/menu-help".set_item_shortcut(0, make_shortcut.call("help-repo"))
 
 
 func _notification(what: int) -> void:
