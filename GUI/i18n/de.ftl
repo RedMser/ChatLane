@@ -101,6 +101,13 @@ dialog-vc-section-help-title = Hilfe
 dialog-filter-vpk-addon = VPK-Addon
 dialog-filter-vpk-file = VPK-Datei
 dialog-filter-config = Chatrad-Konfiguration
+dialog-custom-menu-limit-title = Über benutzerdefinierte Menüs
+dialog-custom-menu-limit-text = Deadlock verfügt über Sprachbefehlsmenüs, die Sie im Chatrad zuweisen können (z.B. "Auf Pfad vorstoßen").
+                                Mit diesem Tool können Sie benutzerdefinierte Menüs erstellen, die zur Liste der Chatrad-Einstellungen hinzugefügt werden.
+                                
+                                Seit dem 13. November 2024 gibt es in Deadlock einen Bug, weswegen nur ein einziges Menü gleichzeitig im Chat-Rad aktiv
+                                sein kann. Obwohl das Tool die Erstellung mehrerer Menüs ermöglicht, können Sie derzeit aufgrund dieses Fehlers
+                                nicht mehrere gleichzeitig verwenden.
 alert-locate-no-vpks = Der ausgewählte Ordner scheint keine Add-on-VPKs zu enthalten.
                        Versuchen Sie einen Ordner wie steamapps/common/Deadlock/game/citadel/addons
 alert-locate-results = { $count ->

@@ -205,6 +205,10 @@ func update_custom_menu_editor():
 
 
 func _on_add_custom_menu_pressed() -> void:
+	if !FileAccess.file_exists("user://custom_menu_warning_seen") or OS.has_feature("editor"):
+		FileAccess.open("user://custom_menu_warning_seen", FileAccess.WRITE).close()
+		%CustomMenuLimitWarning.popup()
+	
 	var menu := {
 		"name": tr("cm-default-name"),
 		"icon": null,

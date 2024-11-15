@@ -101,6 +101,13 @@ dialog-vc-section-help-title = Help
 dialog-filter-vpk-addon = VPK Addon
 dialog-filter-vpk-file = VPK File
 dialog-filter-config = Chat Wheel Config
+dialog-custom-menu-limit-title = About Custom Menus
+dialog-custom-menu-limit-text = Deadlock has voice command menus which you can bind in the chat wheel (e.g. "Push Lane").
+                                This tool allows you to create custom menus, which get added to the chat wheel settings list.
+                                
+                                As of 13th Nov. 2024, Deadlock has a bug that only allows a single menu to be active
+                                on your chat wheel at the same time. While the tool allows creating multiple, you currently
+                                won't be able to use multiple at once, due to this bug.
 alert-locate-no-vpks = The folder you selected does not seem to contain any add-on VPK files.
                        Try a folder like steamapps/common/Deadlock/game/citadel/addons
 alert-locate-results = { $count ->

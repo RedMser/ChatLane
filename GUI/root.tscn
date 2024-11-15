@@ -331,6 +331,13 @@ layout_mode = 2
 text = "cm-add"
 icon = ExtResource("10_50g4q")
 
+[node name="CustomMenuLimitWarning" type="AcceptDialog" parent="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/HBoxContainer/AddCustomMenu"]
+unique_name_in_owner = true
+title = "dialog-custom-menu-limit-title"
+initial_position = 2
+ok_button_text = "dialog-ok"
+dialog_text = "dialog-custom-menu-limit-text"
+
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HSplitContainer/VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
