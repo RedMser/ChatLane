@@ -6,6 +6,7 @@ signal delete(index: int)
 signal move(from: int, to: int)
 
 const VoiceCommand = preload("res://voice_command.tscn")
+const VOICE_LINES_LIMIT = 12
 
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -26,6 +27,12 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 			move.emit(old_index, new_index)
 
 
+func clear():
+	while %Items.get_child_count() > 0:
+		%Items.remove_child(%Items.get_child(0))
+	update_voice_counter(0)
+
+
 func add_voice_command(node_name: StringName, label: String, emit := true):
 	$EmptyState.hide()
 	
@@ -40,6 +47,7 @@ func add_voice_command(node_name: StringName, label: String, emit := true):
 	%Items.add_child(vc)
 	if emit:
 		add.emit(vc.get_id())
+	update_voice_counter()
 
 
 func get_drop_index(pos: float) -> int:
@@ -53,8 +61,24 @@ func _on_vc_delete(vc_name: String):
 	if !vc: return
 	var index = vc.get_index()
 	var is_last = %Items.get_child_count() <= 1
+	%Items.remove_child(vc)
 	vc.queue_free()
 	delete.emit(index)
 	
 	if is_last:
 		$EmptyState.show()
+	update_voice_counter()
+
+
+func update_voice_counter(count := -1):
+	if count < 0:
+		count = %Items.get_child_count()
+	$VoiceCounter.text = TranslationFluent.args("vc-count", {
+		"count": count, "limit": VOICE_LINES_LIMIT
+	})
+	if count > VOICE_LINES_LIMIT:
+		$VoiceCounter.add_theme_color_override("font_color", Color.RED)
+		$VoiceCounter.add_theme_font_override("font", load("res://fonts/Montserrat-Bold.ttf"))
+	else:
+		$VoiceCounter.remove_theme_color_override("font_color")
+		$VoiceCounter.remove_theme_font_override("font")

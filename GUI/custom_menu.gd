@@ -43,8 +43,7 @@ func update_custom_menu():
 	else:
 		%Icons.select(0)
 
-	while %Items.get_child_count() > 0:
-		%Items.remove_child(%Items.get_child(0))
+	$VoiceCommandsList.clear()
 	for item in custom_menu["items"]:
 		var vcs = $/root/VBoxContainer/%VoiceLines.get_children()
 		var found

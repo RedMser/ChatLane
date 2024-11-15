@@ -58,6 +58,7 @@ vc-category-broken-help = Einige Sprachzeilen werden intern verwendet (z.B. für
 
 vc-delete-tooltip = Sprachbefehl aus diesem Menü löschen.
 vc-enabled-tooltip = Ob dieser Sprachbefehl in den Einstellungen im Spiel auswählbar sein soll.
+vc-count = { $count } von { $limit }
 
 # TODO: translate the list items (via vcDB class?)
 

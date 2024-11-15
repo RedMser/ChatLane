@@ -58,6 +58,7 @@ vc-category-broken-help = Some voice lines are used internally (for post-game ch
 
 vc-delete-tooltip = Delete voice command from this menu.
 vc-enabled-tooltip = Whether this voice command should be selectable in the in-game settings.
+vc-count = { $count } of { $limit }
 
 # TODO: translate the list items (via vcDB class?)
 

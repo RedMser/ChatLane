@@ -84,6 +84,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="VoiceCounter" type="Label" parent="VoiceCommandsList"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 1
+text = "0 of 12"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="VoiceCommandsList"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
