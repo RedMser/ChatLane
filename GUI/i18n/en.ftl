@@ -15,6 +15,10 @@ help-about = About...
 language-title = Select a language:
 language-confirm = Confirm
 
+launch-disclaimer = [b]Disclaimer:[/b] Deadlock is in early alpha, so this tool and add-on [b]may stop working at any moment[/b].
+                    As the tool edits a game file (specifically a script file), I am [b]not responsible for any bans for users of this tool[/b].
+                    Valve does not have a clear stance on what's fair game when it comes to modding Deadlock yet!
+
 config-load-error-template = Loading config failed: { $cause }
 config-validation-error-template = { $message } (expected { $expect } but got { $actual })
 

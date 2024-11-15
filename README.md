@@ -15,7 +15,7 @@ A tool to customize the chat wheel of Valve's game Deadlock:
 ## Disclaimer
 
 - Deadlock is in early alpha, so this tool and add-on **may stop working at any moment**.
-- As you are editing game files (specifically script files), I am **not responsible for any bans for users of this tool**. Valve does not have a clear stance on what's fair game when it comes to modding Deadlock yet!
+- As the tool edits a game file (specifically a script file), I am **not responsible for any bans for users of this tool**. Valve does not have a clear stance on what's fair game when it comes to modding Deadlock yet!
 
 ## Installation and Usage
 

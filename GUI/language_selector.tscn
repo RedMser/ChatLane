@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c41wljf4scw0k"]
+[gd_scene load_steps=5 format=3 uid="uid://c41wljf4scw0k"]
 
 [ext_resource type="Script" path="res://language_selector.gd" id="1_q1wgv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86yv4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1wgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1wgv"]
 content_margin_left = 60.0
@@ -54,6 +56,17 @@ max_columns = 2
 fixed_column_width = 200
 icon_mode = 0
 fixed_icon_size = Vector2i(128, 160)
+
+[node name="Label2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_separation = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q1wgv")
+bbcode_enabled = true
+text = "launch-disclaimer"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
 
 [node name="Confirm" type="Button" parent="VBoxContainer"]
 layout_mode = 2
