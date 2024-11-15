@@ -4,6 +4,8 @@ signal error(message: String)
 signal loaded
 signal unsaved_status_changed
 
+const DEFAULT_CONFIG_NAME = "new_config"
+
 var is_loading := false
 var has_unsaved_changes := false:
 	set(value):
@@ -22,7 +24,7 @@ func _init() -> void:
 
 
 func reset_cfg(emit := true) -> void:
-	config_name = "new_config"
+	config_name = DEFAULT_CONFIG_NAME
 	override_bindable = { "Missing": true }
 	custom_menus = []
 

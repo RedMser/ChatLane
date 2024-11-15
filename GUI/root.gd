@@ -89,6 +89,12 @@ func load_cfg():
 
 
 func save_cfg():
+	if Config.config_name == Config.DEFAULT_CONFIG_NAME:
+		$SaveDialog.current_file = "pak50_dir.vpk"
+	elif Config.config_name.begins_with("pak") and Config.config_name.ends_with("_dir"):
+		$SaveDialog.current_file = Config.config_name + ".vpk"
+	else:
+		$SaveDialog.current_file = Config.config_name + ".yml"
 	$SaveDialog.popup_centered()
 
 
