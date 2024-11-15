@@ -94,6 +94,9 @@ dialog-delete-menu-text = Möchten Sie dieses Menü löschen?
                           Alle vorgenommenen Änderungen gehen dauerhaft verloren.
 dialog-delete-menu-ok = Löschen
 dialog-vc-section-help-title = Hilfe
+dialog-filter-vpk-addon = VPK-Addon
+dialog-filter-vpk-file = VPK-Datei
+dialog-filter-config = Chatrad-Konfiguration
 alert-locate-no-vpks = Der ausgewählte Ordner scheint keine Add-on-VPKs zu enthalten.
                        Versuchen Sie einen Ordner wie steamapps/common/Deadlock/game/citadel/addons
 alert-locate-results = { $count ->

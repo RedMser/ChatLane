@@ -94,6 +94,9 @@ dialog-delete-menu-text = Delete this custom menu?
                           You will permanently lose all changes done to it.
 dialog-delete-menu-ok = Delete
 dialog-vc-section-help-title = Help
+dialog-filter-vpk-addon = VPK Addon
+dialog-filter-vpk-file = VPK File
+dialog-filter-config = Chat Wheel Config
 alert-locate-no-vpks = The folder you selected does not seem to contain any add-on VPK files.
                        Try a folder like steamapps/common/Deadlock/game/citadel/addons
 alert-locate-results = { $count ->

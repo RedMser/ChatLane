@@ -441,7 +441,7 @@ ok_button_text = "Open"
 mode_overrides_title = false
 file_mode = 0
 access = 2
-filters = PackedStringArray("pak*_dir.vpk,*.yml,*.yaml;Supported Config Formats", "pak*_dir.vpk;VPK Addon", "*.yml,*.yaml;Chat Wheel Config", "*.*;All Files")
+filters = PackedStringArray("pak*_dir.vpk;dialog-filter-vpk-addon", "*.yml,*.yaml;dialog-filter-config")
 use_native_dialog = true
 
 [node name="SaveDialog" type="FileDialog" parent="."]
@@ -450,7 +450,7 @@ title = "dialog-save-title"
 initial_position = 2
 mode_overrides_title = false
 access = 2
-filters = PackedStringArray("*.vpk;VPK File", "*.yml,*.yaml;Chat Wheel Config")
+filters = PackedStringArray("*.vpk;dialog-filter-vpk-file", "*.yml,*.yaml;dialog-filter-config")
 use_native_dialog = true
 
 [node name="AlertDialog" type="AcceptDialog" parent="."]
