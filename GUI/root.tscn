@@ -201,11 +201,6 @@ show_enabled_checkbox = true
 layout_mode = 2
 show_enabled_checkbox = true
 
-[node name="Good Game (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Good Game [ALL CHAT]"
-show_enabled_checkbox = true
-
 [node name="Headed to Blue Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
 label = "Headed to Blue"
@@ -263,6 +258,11 @@ show_enabled_checkbox = true
 layout_mode = 2
 text = "vc-category-broken"
 help_text = "vc-category-broken-help"
+
+[node name="Good Game (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
+layout_mode = 2
+label = "Good Game [ALL CHAT]"
+show_enabled_checkbox = true
 
 [node name="Good Job (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
 layout_mode = 2
