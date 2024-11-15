@@ -219,7 +219,7 @@ func _on_add_custom_menu_pressed() -> void:
 
 
 func create_custom_menu_item(menu: Dictionary):
-	%CustomMenus.add_item(menu.name, IconDB.get_texture(menu.icon))
+	%CustomMenus.add_item(Utils.limit_string(menu.name, 32), IconDB.get_texture(menu.icon))
 	%CustomMenus.set_item_icon_modulate(%CustomMenus.item_count-1, IconDB.DARK_COLOR)
 
 
@@ -229,7 +229,7 @@ func _on_custom_menu_editor_updated() -> void:
 		return
 	selected = selected[0]
 	var menu = Config.custom_menus[selected]
-	%CustomMenus.set_item_text(selected, menu["name"])
+	%CustomMenus.set_item_text(selected, Utils.limit_string(menu["name"], 32))
 	%CustomMenus.set_item_icon(selected, IconDB.get_texture(menu["icon"]))
 
 
