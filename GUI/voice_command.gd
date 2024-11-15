@@ -24,16 +24,28 @@ signal delete
 		show_delete_button = value
 		if is_node_ready():
 			$HBoxContainer/Delete.visible = value
+var error_text := "":
+	set(value):
+		error_text = value
+		if is_node_ready():
+			update_error_text()
 var drag_context := "list"
 var is_enabled_by_default: bool
+var default_stylebox: StyleBoxFlat
+var error_stylebox: StyleBoxFlat
 
 
 func _ready():
+	default_stylebox = get("theme_override_styles/panel")
+	error_stylebox = default_stylebox.duplicate()
+	error_stylebox.bg_color = Color(0.633, 0.33, 0.39)
+	
 	update_display_text()
 	show_enabled_checkbox = show_enabled_checkbox
 	is_enabled = is_enabled
 	is_enabled_by_default = is_enabled
 	show_delete_button = show_delete_button
+	update_error_text()
 
 
 func update_display_text():
@@ -41,6 +53,16 @@ func update_display_text():
 	if label.is_empty():
 		display_text = str(name).replace("$", "")
 	$HBoxContainer/Label.text = display_text
+
+
+func update_error_text():
+	tooltip_text = error_text
+	if error_text.is_empty():
+		add_theme_stylebox_override("panel", default_stylebox)
+		$HBoxContainer/Label.remove_theme_color_override("font_color")
+	else:
+		add_theme_stylebox_override("panel", error_stylebox)
+		$HBoxContainer/Label.add_theme_color_override("font_color", Color.WHITE)
 
 
 func get_id() -> String:
@@ -51,6 +73,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview = load("res://voice_command.tscn").instantiate()
 	preview.name = name
 	preview.label = label
+	preview.error_text = error_text
 	set_drag_preview(preview)
 	return [drag_context, self]
 
