@@ -120,4 +120,5 @@ Additionally, a build profile was used to reduce the export template file size s
 - [FontAwesome Free](https://fontawesome.com/) (CC-BY 4.0) for some icons in the GUI
 - [Montserrat](https://fonts.google.com/specimen/Montserrat) (OFL) font
 - Deadlock Modding Discord for CSDK
+- 9joao6 for the ChatLane logo
 - Valve for Deadlock
