@@ -48,6 +48,7 @@ func add_voice_command(node_name: StringName, label: String, emit := true):
 	if emit:
 		add.emit(vc.get_id())
 	update_voice_counter()
+	update_items_error()
 
 
 func get_drop_index(pos: float) -> int:
@@ -68,6 +69,7 @@ func _on_vc_delete(vc_name: String):
 	if is_last:
 		$EmptyState.show()
 	update_voice_counter()
+	update_items_error()
 
 
 func update_voice_counter(count := -1):
@@ -82,3 +84,29 @@ func update_voice_counter(count := -1):
 	else:
 		$VoiceCounter.remove_theme_color_override("font_color")
 		$VoiceCounter.remove_theme_font_override("font")
+
+
+func update_items_error():
+	var known_items = []
+	var duplicate_items = []
+	for item in %Items.get_children():
+		var id = item.get_id()
+		if id in known_items and id not in duplicate_items:
+			duplicate_items.append(id)
+		elif id not in known_items:
+			known_items.append(id)
+	for item in %Items.get_children():
+		var errors = PackedStringArray()
+		var add_error = func(type):
+			errors.append("- " + tr("vc-error-" + type))
+		
+		var id = item.get_id()
+		
+		# TODO: proper check for menus
+		if "..." in tr(item.label):
+			add_error.call("menu")
+		
+		if id in duplicate_items:
+			add_error.call("duplicate")
+		
+		item.error_text = "\n".join(errors)

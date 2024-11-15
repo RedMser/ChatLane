@@ -59,6 +59,9 @@ vc-category-broken-help = Some voice lines are used internally (for post-game ch
 vc-delete-tooltip = Delete voice command from this menu.
 vc-enabled-tooltip = Whether this voice command should be selectable in the in-game settings.
 vc-count = { $count } of { $limit }
+vc-error-duplicate = This voice command exists multiple times in the same menu.
+                     While this is valid and technically supported, it might be an accident.
+vc-error-menu = Menus may not be nested within other menus.
 
 # TODO: translate the list items (via vcDB class?)
 
