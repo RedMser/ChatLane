@@ -85,6 +85,8 @@ For any other bugs, it's either an issue with ChatLane, or a new game update bro
 
 # Technical info
 
+Read on for all those developers, contributors and reverse-engineers among you.
+
 ## Repository structure
 
 - `CLI`: A bridge that converts between a human-readable interchange YAML config format, and a fully bundled VPK add-on which can be loaded as-is into Deadlock.
