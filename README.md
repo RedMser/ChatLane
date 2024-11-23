@@ -103,11 +103,12 @@ Read on for all those developers, contributors and reverse-engineers among you.
 
 ## Building
 
-Only Windows builds are supported. If demand is high, I can try other platforms as well. Contributions are welcome!
+Only Windows builds are supported, since that is all I currently have access to.
+Contributions are welcome, and I will try my best to help with any issues encountered!
 
-`tools/prepare_build.ps1` basically prepares all the files needed for a release.
+The script `tools/prepare_build.ps1` prepares all projects and builds them in the same way as the release zip archives.
 
-See [this issue](https://github.com/RedMser/chatlane/issues/11) for a list of paths you must tweak to fit your system.
+You currently need to do some changes by hand to get it working. See [this issue](https://github.com/RedMser/chatlane/issues/11) for a list of tweaks you must do.
 
 ### CLI
 
@@ -115,14 +116,20 @@ In the project root folder, run `dotnet publish CLI`
 
 ### GUI
 
-A custom Godot 4.4 build was used for the GUI. It relies on [this PR](https://github.com/godotengine/godot/pull/77907).
-You may be able to circumvent this dependency by replacing `tmp://` paths in the project, or waiting for the PR to be merged.
+A custom Godot 4.4 build was used for the GUI. It relies on [this pending PR](https://github.com/godotengine/godot/pull/77907) as well as some minor bug fixes [[1]](https://github.com/godotengine/godot/pull/99223)[[2]](https://github.com/godotengine/godot/pull/99266).
+When using [official 4.4 builds](https://godotengine.org/download/preview/), you may be able to circumvent the errors caused by the unmerged PR by replacing `tmp://` paths in the project.
 
-Additionally, a build profile was used to reduce the export template file size slightly. This is not required to run the project.
+Additionally, a build profile was used to reduce the export template file size slightly:
+
+```
+scons target=template_release build_profile="GUI/GUIdot.build"
+```
+
+This custom build is not required to run the project.
 
 ## Third-Party
 
-- [VRF](https://github.com/ValveResourceFormat/ValveResourceFormat) (MIT) for the very helpful Source 2 Viewer and KV3 library
+- [ValveResourceFormat](https://github.com/ValveResourceFormat/ValveResourceFormat) (MIT) for the very helpful Source 2 Viewer and KV3 library
 - [ValvePak](https://github.com/ValveResourceFormat/ValvePak) (MIT) for VPK library
 - [SourceIO](https://github.com/REDxEYE/SourceIO) (MIT) for binary KV3 writer
 - [Godot Engine](https://github.com/godotengine/godot) (MIT) for being a great cross-platform GUI toolkit
