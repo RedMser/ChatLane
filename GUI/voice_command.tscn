@@ -32,7 +32,6 @@ tooltip_text = "vc-enabled-tooltip"
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "VoiceCommand"
 
 [node name="Delete" type="Button" parent="HBoxContainer"]
 visible = false
