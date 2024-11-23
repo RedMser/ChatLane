@@ -124,7 +124,7 @@ func _on_locate_dialog_dir_selected(dir: String) -> void:
 	$Spinner.set_visible_soon(false)
 	
 	alert(TranslationFluent.args("alert-locate-results", {
-		"count": succeeded.size(), "vpks": ", ".join(PackedStringArray(succeeded))
+		"count": float(succeeded.size()), "vpks": ", ".join(PackedStringArray(succeeded))
 	}))
 
 
