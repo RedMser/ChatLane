@@ -12,6 +12,11 @@ func _ready() -> void:
 			%Languages.select(idx)
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		get_tree().quit()
+
+
 func _on_confirm_pressed() -> void:
 	get_tree().change_scene_to_file("res://root.tscn")
 
