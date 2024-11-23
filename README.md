@@ -107,17 +107,32 @@ Only Windows builds are supported, since that is all I currently have access to.
 Contributions are welcome, and I will try my best to help with any issues encountered!
 
 The script `tools/prepare_build.ps1` prepares all projects and builds them in the same way as the release zip archives.
+The result can be found in the `build` folder which will be generated in the repository root.
 
-You currently need to do some changes by hand to get it working. See [this issue](https://github.com/RedMser/chatlane/issues/11) for a list of tweaks you must do.
+If you only wish to compile a part of the project (e.g. just the CLI or just the GUI), look inside the `prepare_build` script.
 
 ### CLI
 
-In the project root folder, run `dotnet publish CLI`
+You will need [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed. No further preparation is needed.
 
 ### GUI
 
-A custom Godot 4.4 build was used for the GUI. It relies on [this pending PR](https://github.com/godotengine/godot/pull/77907) as well as some minor bug fixes [[1]](https://github.com/godotengine/godot/pull/99223)[[2]](https://github.com/godotengine/godot/pull/99266).
-When using [official 4.4 builds](https://godotengine.org/download/preview/), you may be able to circumvent the errors caused by the unmerged PR by replacing `tmp://` paths in the project.
+You will need to place Godot executables so they can be discovered by the tooling, like so:
+
+```
+ChatLane
+  GUI
+    bin
+      windows
+        executables
+          godot.windows.editor.x86_64.console.exe
+          godot.windows.editor.x86_64.exe
+          godot.windows.template_release.x86_64.console.exe
+          godot.windows.template_release.x86_64.exe
+```
+
+[Download the **custom** Godot 4.4 build](https://github.com/RedMser/godot/releases/tag/chatlane-1) that was used for this. It relies on [this pending PR](https://github.com/godotengine/godot/pull/77907) as well as some minor bug fixes [[1]](https://github.com/godotengine/godot/pull/99223)[[2]](https://github.com/godotengine/godot/pull/99266).
+When using [official 4.4 builds](https://godotengine.org/download/preview/) instead, you may be able to circumvent the errors caused by the unmerged PR by replacing `tmp://` paths in the project.
 
 Additionally, a build profile was used to reduce the export template file size slightly:
 
@@ -125,7 +140,10 @@ Additionally, a build profile was used to reduce the export template file size s
 scons target=template_release build_profile="GUI/GUIdot.build"
 ```
 
-This custom build is not required to run the project.
+### Troubleshooting
+
+- **None of the UI strings are translated.**
+  - Open the GUI project in Godot (see instructions above for executable download) and launch the project with F5. Then re-run the `prepare_build.ps1` script.
 
 ## Third-Party
 
