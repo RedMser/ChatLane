@@ -16,7 +16,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data[0] == "list":
-		add_voice_command(data[1].name, data[1].label)
+		add_voice_command(VoiceCommandsDB.find(data[1].id))
 	elif data[0] == "item":
 		var old_index = data[1].get_index()
 		var new_index = get_drop_index(at_position.y)
@@ -33,20 +33,19 @@ func clear():
 	update_voice_counter(0)
 
 
-func add_voice_command(node_name: StringName, label: String, emit := true):
+func add_voice_command(item: Dictionary, emit := true):
 	$EmptyState.hide()
 	
 	var vc = VoiceCommand.instantiate()
-	while %Items.has_node(str(node_name)):
-		node_name += "$" # keep node names unique
-	vc.name = node_name
-	vc.label = label
+	vc.id = item["id"]
+	vc.name = item["id"] # may be duplicate, but it's only for debugging so whatever
+	vc.label = item["label"]
 	vc.show_delete_button = true
-	vc.delete.connect(_on_vc_delete.bind(str(vc.name)))
+	vc.delete.connect(_on_vc_delete.bind(item["id"]))
 	vc.drag_context = "item"
 	%Items.add_child(vc)
 	if emit:
-		add.emit(vc.get_id())
+		add.emit(item["id"])
 	update_voice_counter()
 	update_items_error()
 
@@ -58,7 +57,11 @@ func get_drop_index(pos: float) -> int:
 
 
 func _on_vc_delete(vc_name: String):
-	var vc = %Items.get_node_or_null(vc_name)
+	var vc
+	for child in %Items.get_children():
+		if child.id == vc_name:
+			vc = child
+			break
 	if !vc: return
 	var index = vc.get_index()
 	var is_last = %Items.get_child_count() <= 1
@@ -90,7 +93,7 @@ func update_items_error():
 	var known_items = []
 	var duplicate_items = []
 	for item in %Items.get_children():
-		var id = item.get_id()
+		var id = item.id
 		if id in known_items and id not in duplicate_items:
 			duplicate_items.append(id)
 		elif id not in known_items:
@@ -100,10 +103,8 @@ func update_items_error():
 		var add_error = func(type):
 			errors.append("- " + tr("vc-error-" + type))
 		
-		var id = item.get_id()
-		
-		# TODO: proper check for menus
-		if "..." in tr(item.label):
+		var id = item.id
+		if VoiceCommandsDB.find(id)["isMenu"]:
 			add_error.call("menu")
 		
 		if id in duplicate_items:

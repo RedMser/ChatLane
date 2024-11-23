@@ -1,10 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://8y6m86pylxc3"]
+[gd_scene load_steps=16 format=3 uid="uid://8y6m86pylxc3"]
 
-[ext_resource type="PackedScene" uid="uid://c2igoqwjkmkbo" path="res://voice_command_section.tscn" id="1_pq8q7"]
 [ext_resource type="Script" path="res://root.gd" id="1_vyht1"]
 [ext_resource type="FontFile" uid="uid://ibm63svw370k" path="res://fonts/Montserrat-Italic.ttf" id="2_bf3um"]
 [ext_resource type="Texture2D" uid="uid://b5w5tr85okcu5" path="res://fontawesome/file.svg" id="2_qwhpj"]
-[ext_resource type="PackedScene" uid="uid://bb45jskpc0d1x" path="res://voice_command.tscn" id="3_28aoi"]
 [ext_resource type="Texture2D" uid="uid://bqsbm57nj3hyw" path="res://fontawesome/folder-open.svg" id="3_qt76e"]
 [ext_resource type="Texture2D" uid="uid://tusu7re382fp" path="res://fontawesome/search.svg" id="4_sq7yr"]
 [ext_resource type="PackedScene" uid="uid://bwbjiw3xh6mep" path="res://custom_menu.tscn" id="5_jnlp7"]
@@ -13,6 +11,7 @@
 [ext_resource type="Script" path="res://unsaved_exit_confirm.gd" id="6_l8v81"]
 [ext_resource type="Script" path="res://about_dialog.gd" id="7_vyht1"]
 [ext_resource type="Script" path="res://spinner.gd" id="8_bf3um"]
+[ext_resource type="Script" path="res://voice_lines.gd" id="8_sq7yr"]
 [ext_resource type="Texture2D" uid="uid://b756yecrsww0j" path="res://fontawesome/plus-square.svg" id="10_50g4q"]
 [ext_resource type="Script" path="res://unsaved_load_confirm.gd" id="13_qt76e"]
 
@@ -122,178 +121,7 @@ horizontal_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="VoiceCommandSection" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
-layout_mode = 2
-text = "vc-category-default"
-
-[node name="Can Heal" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Defend Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Defend Lane ..."
-
-[node name="Going In" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Good Job" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Headed to Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Lane ..."
-
-[node name="Headed To Shop$SLASH$Base" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Shop/Base"
-
-[node name="Help With Idol" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Help" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Need Heal" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Push Lane" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Push Lane ..."
-
-[node name="Retreat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Sorry" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Stay Together" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Thanks" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="Need Plan" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "What's the Plan?"
-
-[node name="You\'re Welcome" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-
-[node name="VoiceCommandSection2" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
-layout_mode = 2
-text = "vc-category-hidden"
-help_text = "vc-category-hidden-help"
-
-[node name="Defend Blue" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Defend Green" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Defend Purple" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Defend Yellow" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Headed to Blue Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Blue"
-show_enabled_checkbox = true
-
-[node name="Heading to Green Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Green"
-show_enabled_checkbox = true
-
-[node name="Headed to Purple Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Purple"
-show_enabled_checkbox = true
-
-[node name="Heading to Yellow Subnav" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Headed to Yellow"
-show_enabled_checkbox = true
-
-[node name="Push Blue" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Push Green" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Push Purple" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Push Yellow" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="VoiceCommandSection3" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
-layout_mode = 2
-text = "vc-category-wip"
-help_text = "vc-category-wip-help"
-
-[node name="No" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="On My Way" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="Yes" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-show_enabled_checkbox = true
-
-[node name="VoiceCommandSection4" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("1_pq8q7")]
-layout_mode = 2
-text = "vc-category-broken"
-help_text = "vc-category-broken-help"
-
-[node name="Good Game (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Good Game [ALL CHAT]"
-show_enabled_checkbox = true
-
-[node name="Good Job (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Good Job (Post Game)"
-show_enabled_checkbox = true
-
-[node name="Thanks (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Thanks (Post Game)"
-show_enabled_checkbox = true
-
-[node name="Well Played (Post Game) - All Chat" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Well Played (Post Game)"
-show_enabled_checkbox = true
-
-[node name="Missing" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "(Enemy) is Missing"
-show_enabled_checkbox = true
-is_enabled = true
-
-[node name="Pinged Enemy Player" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "I see (Enemy)"
-show_enabled_checkbox = true
-
-[node name="Pinged Teammate" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/ScrollContainer/VoiceLines" instance=ExtResource("3_28aoi")]
-layout_mode = 2
-label = "Careful (Teammate)"
-show_enabled_checkbox = true
+script = ExtResource("8_sq7yr")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2

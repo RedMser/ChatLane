@@ -17,7 +17,9 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	Config.is_loading = true
 	_on_config_loaded()
+	Config.is_loading = false
 	
 	%LanguageChange.icon = I18n.language_flags[TranslationServer.get_locale()]
 	var lang_menu: PopupMenu = %LanguageChange.get_popup()
@@ -192,7 +194,7 @@ func _on_config_loaded() -> void:
 	for child in %VoiceLines.get_children():
 		if !(child is VoiceCommand) or !child.show_enabled_checkbox:
 			continue
-		child.is_enabled = Config.override_bindable.get(child.get_id(), false)
+		child.is_enabled = Config.override_bindable.get(child.id, false)
 
 	%CustomMenus.clear()
 	for menu in Config.custom_menus:

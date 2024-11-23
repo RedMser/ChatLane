@@ -45,14 +45,9 @@ func update_custom_menu():
 
 	$VoiceCommandsList.clear()
 	for item in custom_menu["items"]:
-		var vcs = $/root/VBoxContainer/%VoiceLines.get_children()
-		var found
-		for vc in vcs:
-			if vc is VoiceCommand and vc.get_id() == item:
-				found = vc
-				break
+		var found = VoiceCommandsDB.find(item)
 		if found:
-			$VoiceCommandsList.add_voice_command(found.name, found.label, false)
+			$VoiceCommandsList.add_voice_command(found, false)
 		else:
 			push_error("Unknown voice command ", item)
 

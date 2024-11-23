@@ -25,7 +25,7 @@ func _init() -> void:
 
 func reset_cfg(emit := true) -> void:
 	config_name = DEFAULT_CONFIG_NAME
-	override_bindable = { "Missing": true }
+	override_bindable = VoiceCommandsDB.get_bindable_overrides()
 	custom_menus = []
 
 	if emit:

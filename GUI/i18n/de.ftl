@@ -63,7 +63,47 @@ vc-error-duplicate = Dieser Sprachbefehl taucht mehrfach in diesem Menü auf.
                      Zwar ist dies erlaubt und technisch gesehen gültig, ist es möglicherweise ein Versehen.
 vc-error-menu = Menüs dürfen nicht in anderen Menüs verschachtelt werden.
 
-# TODO: translate the list items (via vcDB class?)
+vc-item-can_heal = Kann heilen
+vc-item-defend_lane = Pfad verteidigen ...
+vc-item-going_in = Ich gehe rein
+vc-item-good_job = Gut gemacht
+vc-item-headed_to_lane = Bin unterwegs zum Pfad ...
+vc-item-headed_to_shop_base = Bin unterwegs zur Basis
+vc-item-help_with_idol = Mit Seelenurne helfen
+vc-item-help = Hilfe
+vc-item-need_heal = Brauche Heilung
+vc-item-push_lane = Auf Pfad vorstoßen ...
+vc-item-retreat = Rückzug
+vc-item-sorry = Tut mir leid
+vc-item-stay_together = Zusammenbleiben
+vc-item-thanks = Danke
+vc-item-need_plan = Was ist der Plan?
+vc-item-youre_welcome = Gern geschehen
+
+vc-item-defend_blue = Verteidige Blau
+vc-item-defend_green = Verteidige Grün
+vc-item-defend_purple = Verteidige Lila
+vc-item-defend_yellow = Verteidige Gelb
+vc-item-headed_to_blue = Gehe zu Blau
+vc-item-heading_to_green = Gehe zu Grün
+vc-item-headed_to_purple = Gehe zu Lila
+vc-item-heading_to_yellow = Gehe zu Gelb
+vc-item-push_blue = Blau angreifen
+vc-item-push_green = Grün angreifen
+vc-item-push_purple = Lila angreifen
+vc-item-push_yellow = Gelb angreifen
+
+vc-item-no = Nein!
+vc-item-on_my_way = Bin unterwegs
+vc-item-yes = Ja
+
+vc-item-good_game_post_game_all_chat = Gutes Spiel [ALLE]
+vc-item-good_job_post_game_all_chat = Gut gemacht (nach Spiel)
+vc-item-thanks_post_game_all_chat = Danke (nach Spiel)
+vc-item-well_played_post_game_all_chat = Gut gespielt (nach Spiel)
+vc-item-missing = (Gegner) fehlt
+vc-item-pinged_enemy_player = Ich sehe (Gegner)
+vc-item-pinged_teammate = Vorsicht (Teamkollege)
 
 # Custom Menus
 cm-title = Eigene Menüs

@@ -3,7 +3,8 @@ extends PanelContainer
 
 signal delete
 
-## Only for display purposes. Defaults to node's name if unspecified.
+@export var id := ""
+## Only for display purposes. Defaults to [member id] if unspecified.
 @export var label := "":
 	set(value):
 		label = value
@@ -51,7 +52,7 @@ func _ready():
 func update_display_text():
 	var display_text = label
 	if label.is_empty():
-		display_text = str(name).replace("$", "")
+		display_text = id
 	$HBoxContainer/Label.text = display_text
 
 
@@ -65,13 +66,9 @@ func update_error_text():
 		$HBoxContainer/Label.add_theme_color_override("font_color", Color.WHITE)
 
 
-func get_id() -> String:
-	return str(name).replace("$SLASH$", "/").replace("$", "")
-
-
 func _get_drag_data(at_position: Vector2) -> Variant:
 	var preview = load("res://voice_command.tscn").instantiate()
-	preview.name = name
+	preview.id = id
 	preview.label = label
 	preview.error_text = error_text
 	set_drag_preview(preview)
@@ -93,7 +90,7 @@ func _on_enabled_toggled(toggled_on: bool) -> void:
 		return
 	# makes little sense to write the default value to bindable explicitly
 	if toggled_on != is_enabled_by_default:
-		Config.override_bindable[get_id()] = toggled_on
+		Config.override_bindable[id] = toggled_on
 	else:
-		Config.override_bindable.erase(get_id())
+		Config.override_bindable.erase(id)
 	Config.has_unsaved_changes = true

@@ -24,9 +24,10 @@ config/icon="res://logo.png"
 
 I18n="*res://autoload/i18n.gd"
 FirstLaunch="*res://autoload/first_launch.gd"
+IconDB="*res://autoload/icon_db.gd"
+VoiceCommandsDB="*res://autoload/voice_commands_db.gd"
 Config="*res://autoload/config.gd"
 CLI="*res://autoload/cli.gd"
-IconDB="*res://autoload/icon_db.gd"
 
 [debug]
 

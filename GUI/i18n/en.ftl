@@ -63,7 +63,47 @@ vc-error-duplicate = This voice command exists multiple times in the same menu.
                      While this is valid and technically supported, it might be an accident.
 vc-error-menu = Menus may not be nested within other menus.
 
-# TODO: translate the list items (via vcDB class?)
+vc-item-can_heal = Can Heal
+vc-item-defend_lane = Defend Lane ...
+vc-item-going_in = Going In
+vc-item-good_job = Good Job
+vc-item-headed_to_lane = Headed to Lane ...
+vc-item-headed_to_shop_base = Headed to Shop/Base
+vc-item-help_with_idol = Help With Idol
+vc-item-help = Help
+vc-item-need_heal = Need Heal
+vc-item-push_lane = Push Lane ...
+vc-item-retreat = Retreat
+vc-item-sorry = Sorry
+vc-item-stay_together = Stay Together
+vc-item-thanks = Thanks
+vc-item-need_plan = What's the Plan?
+vc-item-youre_welcome = You're Welcome
+
+vc-item-defend_blue = Defend Blue
+vc-item-defend_green = Defend Green
+vc-item-defend_purple = Defend Purple
+vc-item-defend_yellow = Defend Yellow
+vc-item-headed_to_blue = Headed to Blue
+vc-item-heading_to_green = Headed to Green
+vc-item-headed_to_purple = Headed to Purple
+vc-item-heading_to_yellow = Headed to Yellow
+vc-item-push_blue = Push Blue
+vc-item-push_green = Push Green
+vc-item-push_purple = Push Purple
+vc-item-push_yellow = Push Yellow
+
+vc-item-no = No
+vc-item-on_my_way = On My Way
+vc-item-yes = Yes
+
+vc-item-good_game_post_game_all_chat = Good Game [ALL CHAT]
+vc-item-good_job_post_game_all_chat = Good Job (Post Game)
+vc-item-thanks_post_game_all_chat = Thanks (Post Game)
+vc-item-well_played_post_game_all_chat = Well Played (Post Game)
+vc-item-missing = (Enemy) is Missing
+vc-item-pinged_enemy_player = I see (Enemy)
+vc-item-pinged_teammate = Careful (Teammate)
 
 # Custom Menus
 cm-title = Custom Menus
