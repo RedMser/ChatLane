@@ -28,6 +28,7 @@ IconDB="*res://autoload/icon_db.gd"
 VoiceCommandsDB="*res://autoload/voice_commands_db.gd"
 Config="*res://autoload/config.gd"
 CLI="*res://autoload/cli.gd"
+Steam="*res://autoload/steam.gd"
 
 [debug]
 
