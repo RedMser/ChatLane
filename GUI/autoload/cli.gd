@@ -36,4 +36,4 @@ func get_executable_path() -> String:
 	if OS.has_feature("editor"):
 		return "../CLI/bin/Release/net8.0/win-x64/publish/ChatLane.exe"
 	else:
-		return "./cli/ChatLane.exe"
+		return FS.get_installation_path().path_join("cli/ChatLane.exe")

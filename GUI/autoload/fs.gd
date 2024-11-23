@@ -11,3 +11,10 @@ static func get_temp_file_path(name: String, needs_write_permission := true) -> 
 	var path = fa.get_path_absolute()
 	fa.close()
 	return path
+
+
+static func get_installation_path() -> String:
+	if OS.has_feature("editor"):
+		return ProjectSettings.globalize_path("res://")
+	else:
+		return OS.get_executable_path().get_base_dir()
