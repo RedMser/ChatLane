@@ -10,12 +10,15 @@ const VC_LIST = [
 	{ "id": "Help With Idol", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-help_with_idol", "isMenu": false },
 	{ "id": "Help", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-help", "isMenu": false },
 	{ "id": "Need Heal", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-need_heal", "isMenu": false },
+	{ "id": "No", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-no", "isMenu": false },
+	{ "id": "On My Way", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-on_my_way", "isMenu": false },
 	{ "id": "Push Lane", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-push_lane", "isMenu": true },
 	{ "id": "Retreat", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-retreat", "isMenu": false },
 	{ "id": "Sorry", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-sorry", "isMenu": false },
 	{ "id": "Stay Together", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-stay_together", "isMenu": false },
 	{ "id": "Thanks", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-thanks", "isMenu": false },
 	{ "id": "Need Plan", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-need_plan", "isMenu": false },
+	{ "id": "Yes", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-yes", "isMenu": false },
 	{ "id": "You\\'re Welcome", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-youre_welcome", "isMenu": false },
 
 	{ "id": "Defend Blue", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-defend_blue", "isMenu": false },
@@ -30,10 +33,6 @@ const VC_LIST = [
 	{ "id": "Push Green", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-push_green", "isMenu": false },
 	{ "id": "Push Purple", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-push_purple", "isMenu": false },
 	{ "id": "Push Yellow", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-push_yellow", "isMenu": false },
-
-	{ "id": "No", "enabled": true, "canDisable": true, "category": "wip", "label": "vc-item-no", "isMenu": false },
-	{ "id": "On My Way", "enabled": true, "canDisable": true, "category": "wip", "label": "vc-item-on_my_way", "isMenu": false },
-	{ "id": "Yes", "enabled": true, "canDisable": true, "category": "wip", "label": "vc-item-yes", "isMenu": false },
 
 	{ "id": "Good Game (Post Game) - All Chat", "enabled": true, "canDisable": true, "category": "broken", "label": "vc-item-good_game_post_game_all_chat", "isMenu": false },
 	{ "id": "Good Job (Post Game) - All Chat", "enabled": true, "canDisable": true, "category": "broken", "label": "vc-item-good_job_post_game_all_chat", "isMenu": false },

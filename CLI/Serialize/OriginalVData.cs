@@ -6,7 +6,7 @@ public static class OriginalVData
 {
     public static KVObject GetData()
     {
-        // scripts/ping_wheel_messages.vdata extracted at 12th November.
+        // scripts/ping_wheel_messages.vdata extracted at 25th November.
         var contents = """
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
@@ -23,6 +23,7 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 1
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
+		m_bPingWheelBindable = true
 	}
 	Help = 
 	{
@@ -35,6 +36,7 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 2
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
+		m_bPingWheelBindable = true
 	}
 	Yes = 
 	{
@@ -44,6 +46,8 @@ public static class OriginalVData
 		m_ePingConcept = "CITADEL_PING_YES"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
 		m_unPingWheelOptionID = 3
+		m_bPingWheelBindable = true
+		m_bBindable = true
 	}
 	Thanks = 
 	{
@@ -56,6 +60,7 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 4
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 40.000000
+		m_bPingWheelBindable = true
 	}
 	Retreat = 
 	{
@@ -68,6 +73,7 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 5
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 40.000000
+		m_bPingWheelBindable = true
 	}
 	"Stay Together" = 
 	{
@@ -79,6 +85,7 @@ public static class OriginalVData
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_OnlyPlaySound"
 		m_unPingWheelOptionID = 6
 		m_bBindable = true
+		m_bPingWheelBindable = true
 	}
 	"Defend Lane" = 
 	{
@@ -107,6 +114,8 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 8
 		m_ePingConcept = "CITADEL_PING_DEFEND_LANE"
 		m_eLaneColor = "k_ELaneColor_Yellow"
+		m_bPingWheelBindable = true
+		m_bBindable = false
 	}
 	"Defend Green" = 
 	{
@@ -116,6 +125,8 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 9
 		m_ePingConcept = "CITADEL_PING_DEFEND_LANE"
 		m_eLaneColor = "k_ELaneColor_Green"
+		m_bPingWheelBindable = true
+		m_bBindable = false
 	}
 	"Defend Blue" = 
 	{
@@ -125,6 +136,8 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 10
 		m_ePingConcept = "CITADEL_PING_DEFEND_LANE"
 		m_eLaneColor = "k_ELaneColor_Blue"
+		m_bPingWheelBindable = true
+		m_bBindable = false
 	}
 	"Defend Purple" = 
 	{
@@ -134,6 +147,7 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 11
 		m_ePingConcept = "CITADEL_PING_DEFEND_LANE"
 		m_eLaneColor = "k_ELaneColor_Purple"
+		m_bPingWheelBindable = true
 	}
 	"Headed To Shop/Base" = 
 	{
@@ -144,6 +158,7 @@ public static class OriginalVData
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
 		m_strIcon = "file://{images}/hud/ping/ping_icon_shop.svg"
 		m_bBindable = true
+		m_bPingWheelBindable = true
 	}
 	No = 
 	{
@@ -152,6 +167,8 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_label_No"
 		m_ePingConcept = "CITADEL_PING_NO"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
+		m_bPingWheelBindable = true
+		m_bBindable = true
 	}
 	"Good Job" = 
 	{
@@ -164,6 +181,7 @@ public static class OriginalVData
 		m_strIcon = "file://{images}/hud/ping/ping_icon_thanks.svg"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
+		m_bPingWheelBindable = true
 	}
 	"Good Game (Post Game) - All Chat" = 
 	{
@@ -212,6 +230,8 @@ public static class OriginalVData
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
 		m_strLabelToken = "#citadel_chatwheel_label_OMW"
 		m_strMessageToken = "#citadel_chatwheel_label_OMW"
+		m_bPingWheelBindable = true
+		m_bBindable = true
 	}
 	"Push Lane" = 
 	{
@@ -304,6 +324,7 @@ public static class OriginalVData
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_question.svg"
+		m_bPingWheelBindable = true
 	}
 	"Need Heal" = 
 	{
@@ -317,6 +338,7 @@ public static class OriginalVData
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_heal.svg"
+		m_bPingWheelBindable = true
 	}
 	"Can Heal" = 
 	{
@@ -330,6 +352,7 @@ public static class OriginalVData
 		m_flPhraseTopMarginOffset = 50.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_heal.svg"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
+		m_bPingWheelBindable = true
 	}
 	"Need Plan" = 
 	{
@@ -340,6 +363,7 @@ public static class OriginalVData
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 25.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_question.svg"
+		m_bPingWheelBindable = true
 	}
 	"Heading to Yellow Subnav" = 
 	{
@@ -352,6 +376,7 @@ public static class OriginalVData
 		m_strIcon = "file://{images}/hud/ping/ping_icon_going_in.svg"
 		m_bIsSubnavMessage = true
 		m_flPhraseTopMarginOffset = 30.000000
+		m_bPingWheelBindable = true
 	}
 	"Heading to Green Subnav" = 
 	{
@@ -364,6 +389,7 @@ public static class OriginalVData
 		m_strIcon = "file://{images}/hud/ping/ping_icon_going_in.svg"
 		m_bIsSubnavMessage = true
 		m_flPhraseTopMarginOffset = 30.000000
+		m_bPingWheelBindable = true
 	}
 	"Headed to Blue Subnav" = 
 	{
@@ -374,6 +400,7 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_message_HeadedToBlue"
 		m_strLabelToken = "#citadel_chatwheel_message_HeadedToBlue"
 		m_flPhraseTopMarginOffset = 30.000000
+		m_bPingWheelBindable = true
 	}
 	"Headed to Purple Subnav" = 
 	{
@@ -384,6 +411,7 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_message_HeadedToPurple"
 		m_strLabelToken = "#citadel_chatwheel_message_HeadedToPurple"
 		m_flPhraseTopMarginOffset = 30.000000
+		m_bPingWheelBindable = true
 	}
 	"Headed to Lane" = 
 	{
@@ -412,6 +440,7 @@ public static class OriginalVData
 		m_strLabelToken = "#ping_help_with_idol_label"
 		m_bBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_MAP_PING"
+		m_bPingWheelBindable = true
 	}
 	"You\'re Welcome" = 
 	{
@@ -423,6 +452,7 @@ public static class OriginalVData
 		m_bBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_NONE"
 		m_flPhraseTopMarginOffset = 30.000000
+		m_bPingWheelBindable = true
 	}
 	Sorry = 
 	{
@@ -432,6 +462,7 @@ public static class OriginalVData
 		m_strMessageToken = "#ping_sorry"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 40.000000
+		m_bPingWheelBindable = true
 	}
 }
 """;
