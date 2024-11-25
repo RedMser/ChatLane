@@ -52,6 +52,12 @@ func load_cfg(yaml: String) -> void:
 		ensure(data["custom_menus"].all(func(i): return typeof(i) == TYPE_DICTIONARY), "custom_menus has a non-dictionary item"):
 		custom_menus = data["custom_menus"]
 	
+	# migrate old voice command ids
+	for menu in custom_menus:
+		for i in menu["items"].size():
+			if menu["items"][i] == "You're Welcome":
+				menu["items"][i] = "You\\'re Welcome"
+	
 	is_loading = true
 	loaded.emit()
 	is_loading = false

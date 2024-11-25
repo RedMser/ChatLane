@@ -40,7 +40,7 @@
 # "Thanks"
 # "Well Played (Post Game) - All Chat"
 # "Yes"
-# "You're Welcome"
+# "You\'re Welcome"
 #
 # List of chat wheel icons you can use:
 #
@@ -56,24 +56,26 @@
 # "shop"
 # "thanks"
 
-name: "Example Config"
+name: Example Config
 
 override_bindable:
-  "Good Game (Post Game) - All Chat": true
-  "No": true
-  "On My Way": true
-  "Yes": true
-  "Well Played (Post Game) - All Chat": true
+  Good Game (Post Game) - All Chat: true
+  No: true
+  On My Way: true
+  Yes: true
+  Well Played (Post Game) - All Chat: true
 
 custom_menus:
-  - name: "First Menu"
-    icon: "thanks"
+  - name: First Menu
+    icon: thanks
     items:
-    - "Sorry"
-    - "Thanks"
-    - "You're Welcome"
-  - name: "Second Menu"
-    icon: "question"
+    - Sorry
+    - Thanks
+    - You\'re Welcome
+    - Yes
+    - No
+  - name: Second Menu
+    icon: question
     items:
-    - "Help"
-    - "Need Plan"
+    - Help
+    - Need Plan

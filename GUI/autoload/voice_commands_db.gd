@@ -16,7 +16,7 @@ const VC_LIST = [
 	{ "id": "Stay Together", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-stay_together", "isMenu": false },
 	{ "id": "Thanks", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-thanks", "isMenu": false },
 	{ "id": "Need Plan", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-need_plan", "isMenu": false },
-	{ "id": "You're Welcome", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-youre_welcome", "isMenu": false },
+	{ "id": "You\\'re Welcome", "enabled": true, "canDisable": false, "category": "default", "label": "vc-item-youre_welcome", "isMenu": false },
 
 	{ "id": "Defend Blue", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-defend_blue", "isMenu": false },
 	{ "id": "Defend Green", "enabled": true, "canDisable": true, "category": "hidden", "label": "vc-item-defend_green", "isMenu": false },
