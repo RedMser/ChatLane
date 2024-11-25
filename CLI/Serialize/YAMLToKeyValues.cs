@@ -10,18 +10,10 @@ public static class YAMLToKeyValues
             .WithNamingConvention(UnderscoredNamingConvention.Instance)
             .Build();
         
-        try
-        {
-            var config = ds.Deserialize<ConfigRoot>(yaml);
-            var vdata = OriginalVData.GetData();
-            config.ApplyTo(vdata);
-            return vdata;
-        }
-        catch (System.Exception ex)
-        {
-            Console.WriteLine("ERRRRRRRRRR " + ex.InnerException.ToString());
-            throw;
-        }
+        var config = ds.Deserialize<ConfigRoot>(yaml);
+        var vdata = OriginalVData.GetData();
+        config.ApplyTo(vdata);
+        return vdata;
     }
 }
 
