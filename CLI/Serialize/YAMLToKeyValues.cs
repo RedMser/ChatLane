@@ -21,6 +21,7 @@ public class ConfigRoot
 {
     public string Name { get; set; }
     public Dictionary<string, bool> OverrideBindable { get; set; }
+    public Dictionary<string, bool> OverridePingWheelBindable { get; set; }
     public List<ConfigCustomMenu> CustomMenus { get; set; }
 
     public void ApplyTo(KVObject vdata)
@@ -43,6 +44,27 @@ public class ConfigRoot
             else
             {
                 Console.WriteLine($"WARN: override_bindable contains unknown voice command \"{bindable.Key}\".");
+            }
+        }
+
+        // Override ping wheel bindables
+        foreach (var bindable in OverridePingWheelBindable)
+        {
+            if (vdata.Properties.TryGetValue(bindable.Key, out KVValue cmdValue))
+            {
+                var cmd = (KVObject)cmdValue.Value;
+                if (cmd.Properties.ContainsKey("m_bPingWheelBindable"))
+                {
+                    cmd.Properties["m_bPingWheelBindable"] = WriteBinaryKV3.MakeValue(bindable.Value);
+                }
+                else
+                {
+                    cmd.AddProperty("m_bPingWheelBindable", WriteBinaryKV3.MakeValue(bindable.Value));
+                }
+            }
+            else
+            {
+                Console.WriteLine($"WARN: override_ping_wheel_bindable contains unknown voice command \"{bindable.Key}\".");
             }
         }
 

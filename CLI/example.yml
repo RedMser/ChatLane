@@ -60,9 +60,9 @@ name: Example Config
 
 override_bindable:
   Good Game (Post Game) - All Chat: true
-  No: true
-  On My Way: true
-  Yes: true
+  Well Played (Post Game) - All Chat: true
+
+override_ping_wheel_bindable:
   Well Played (Post Game) - All Chat: true
 
 custom_menus:
