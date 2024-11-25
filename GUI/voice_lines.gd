@@ -17,6 +17,5 @@ func _ready() -> void:
 			var vc = VoiceCommand.instantiate()
 			vc.id = item["id"]
 			vc.name = item["id"] # might be invalid, but it's for debugging only, so whatever
-			vc.show_enabled_checkbox = item["canDisable"]
 			vc.label = item["label"]
 			add_child(vc)

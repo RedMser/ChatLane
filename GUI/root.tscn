@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://8y6m86pylxc3"]
+[gd_scene load_steps=17 format=3 uid="uid://8y6m86pylxc3"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_vyht1"]
 [ext_resource type="FontFile" uid="uid://ibm63svw370k" path="res://fonts/Montserrat-Italic.ttf" id="2_bf3um"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://unsaved_exit_confirm.gd" id="6_l8v81"]
 [ext_resource type="Script" path="res://about_dialog.gd" id="7_vyht1"]
 [ext_resource type="Script" path="res://spinner.gd" id="8_bf3um"]
+[ext_resource type="Texture2D" uid="uid://6ivc716twpne" path="res://fontawesome/edit.svg" id="8_qt76e"]
 [ext_resource type="Script" path="res://voice_lines.gd" id="8_sq7yr"]
 [ext_resource type="Texture2D" uid="uid://b756yecrsww0j" path="res://fontawesome/plus-square.svg" id="10_50g4q"]
 [ext_resource type="Script" path="res://unsaved_load_confirm.gd" id="13_qt76e"]
@@ -110,6 +111,22 @@ layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "vc-title"
 horizontal_alignment = 1
+
+[node name="EditVCList" type="Button" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/Label"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "vc-edit-button-tooltip"
+toggle_mode = true
+icon = ExtResource("8_qt76e")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -304,6 +321,7 @@ script = ExtResource("8_bf3um")
 
 [connection signal="id_pressed" from="MenuBar/menu-file" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="MenuBar/menu-help" to="." method="_on_help_id_pressed"]
+[connection signal="toggled" from="MarginContainer/HSplitContainer/PanelContainer/VBoxContainer/Label/EditVCList" to="." method="_on_edit_vc_list_toggled"]
 [connection signal="item_selected" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/CustomMenus" to="." method="update_custom_menu_editor" unbinds=1]
 [connection signal="pressed" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/HBoxContainer/AddCustomMenu" to="." method="_on_add_custom_menu_pressed"]
 [connection signal="delete" from="MarginContainer/HSplitContainer/VSplitContainer/PanelContainer2/MarginContainer/CustomMenuEditor" to="." method="_on_custom_menu_editor_delete"]

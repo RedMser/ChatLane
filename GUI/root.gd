@@ -230,9 +230,10 @@ func _on_config_loaded() -> void:
 	
 	const VoiceCommand = preload("res://voice_command.gd")
 	for child in %VoiceLines.get_children():
-		if !(child is VoiceCommand) or !child.show_enabled_checkbox:
+		if !(child is VoiceCommand):
 			continue
-		child.is_enabled = Config.override_bindable.get(child.id, false)
+		child.is_bindable = Config.override_bindable.get(child.id, VoiceCommandsDB.find(child.id)["bindable"])
+		child.is_ping_wheel_bindable = Config.override_ping_wheel_bindable.get(child.id, VoiceCommandsDB.find(child.id)["pingWheelBindable"])
 
 	%CustomMenus.clear()
 	for menu in Config.custom_menus:
@@ -328,3 +329,11 @@ func handle_after_unsaved_action():
 		"load":
 			load_cfg()
 	after_unsaved_action = null
+
+
+func _on_edit_vc_list_toggled(toggled_on: bool) -> void:
+	for vc in %VoiceLines.get_children():
+		const VoiceCommand = preload("res://voice_command.gd")
+		if !(vc is VoiceCommand):
+			continue
+		vc.show_enabled_checkbox = toggled_on

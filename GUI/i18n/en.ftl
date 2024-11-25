@@ -57,11 +57,13 @@ vc-category-broken-help = Some voice lines are used internally (for post-game ch
                           Tick the checkbox to allow selecting them via the in-game settings, at your own risk.
 
 vc-delete-tooltip = Delete voice command from this menu.
-vc-enabled-tooltip = Whether this voice command should be selectable in the in-game settings.
+vs-bindable-tooltip = Whether this voice command should be selectable in the chat wheel settings.
+vc-ping-bindable-tooltip = Whether this voice command should be bindable to a keyboard key in the settings.
 vc-count = { $count } of { $limit }
 vc-error-duplicate = This voice command exists multiple times in the same menu.
                      While this is valid and technically supported, it might be an accident.
 vc-error-menu = Menus may not be nested within other menus.
+vc-edit-button-tooltip = Edit voice commands list.
 
 vc-item-can_heal = Can Heal
 vc-item-defend_lane = Defend Lane ...

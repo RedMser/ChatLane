@@ -14,12 +14,18 @@ signal delete
 	set(value):
 		show_enabled_checkbox = value
 		if is_node_ready():
-			$HBoxContainer/Enabled.visible = value
-@export var is_enabled := false:
+			$HBoxContainer/Bindable.visible = value
+			$HBoxContainer/PingWheelBindable.visible = value
+@export var is_bindable := false:
 	set(value):
-		is_enabled = value
+		is_bindable = value
 		if is_node_ready():
-			$HBoxContainer/Enabled.button_pressed = value
+			$HBoxContainer/Bindable.button_pressed = value
+@export var is_ping_wheel_bindable := false:
+	set(value):
+		is_ping_wheel_bindable = value
+		if is_node_ready():
+			$HBoxContainer/PingWheelBindable.button_pressed = value
 @export var show_delete_button := false:
 	set(value):
 		show_delete_button = value
@@ -31,7 +37,6 @@ var error_text := "":
 		if is_node_ready():
 			update_error_text()
 var drag_context := "list"
-var is_enabled_by_default: bool
 var default_stylebox: StyleBoxFlat
 var error_stylebox: StyleBoxFlat
 
@@ -43,8 +48,8 @@ func _ready():
 	
 	update_display_text()
 	show_enabled_checkbox = show_enabled_checkbox
-	is_enabled = is_enabled
-	is_enabled_by_default = is_enabled
+	is_bindable = is_bindable
+	is_ping_wheel_bindable = is_ping_wheel_bindable
 	show_delete_button = show_delete_button
 	update_error_text()
 
@@ -80,7 +85,7 @@ func _on_delete_pressed() -> void:
 	Config.has_unsaved_changes = true
 
 
-func _on_enabled_toggled(toggled_on: bool) -> void:
+func _on_bindable_toggled(toggled_on: bool) -> void:
 	if !show_enabled_checkbox:
 		return
 	if Engine.is_editor_hint():
@@ -88,9 +93,25 @@ func _on_enabled_toggled(toggled_on: bool) -> void:
 	if Config.is_loading or not get_tree().current_scene.is_node_ready():
 		# only user interaction should be tracked, not _ready or config load
 		return
-	# makes little sense to write the default value to bindable explicitly
-	if toggled_on != is_enabled_by_default:
-		Config.override_bindable[id] = toggled_on
-	else:
+	var default = VoiceCommandsDB.find(id)["bindable"]
+	if toggled_on == default:
 		Config.override_bindable.erase(id)
+	else:
+		Config.override_bindable[id] = toggled_on
+	Config.has_unsaved_changes = true
+
+
+func _on_ping_wheel_bindable_toggled(toggled_on: bool) -> void:
+	if !show_enabled_checkbox:
+		return
+	if Engine.is_editor_hint():
+		return
+	if Config.is_loading or not get_tree().current_scene.is_node_ready():
+		# only user interaction should be tracked, not _ready or config load
+		return
+	var default = VoiceCommandsDB.find(id)["pingWheelBindable"]
+	if toggled_on == default:
+		Config.override_ping_wheel_bindable.erase(id)
+	else:
+		Config.override_ping_wheel_bindable[id] = toggled_on
 	Config.has_unsaved_changes = true

@@ -57,11 +57,13 @@ vc-category-broken-help = Einige Sprachzeilen werden intern verwendet (z.B. für
                           Kreuzen Sie das Häkchen an, um sie auf eigenes Risiko über die Einstellungen im Spiel auswählbar zu machen.
 
 vc-delete-tooltip = Sprachbefehl aus diesem Menü löschen.
-vc-enabled-tooltip = Ob dieser Sprachbefehl in den Einstellungen im Spiel auswählbar sein soll.
+vs-bindable-tooltip = Ob dieser Sprachbefehl in den Chatrad-Einstellungen im Spiel auswählbar sein soll.
+vc-ping-bindable-tooltip = Ob dieser Sprachbefehl in den Tastatur-Einstellungen im Spiel auswählbar sein soll.
 vc-count = { $count } von { $limit }
 vc-error-duplicate = Dieser Sprachbefehl taucht mehrfach in diesem Menü auf.
                      Zwar ist dies erlaubt und technisch gesehen gültig, ist es möglicherweise ein Versehen.
 vc-error-menu = Menüs dürfen nicht in anderen Menüs verschachtelt werden.
+vc-edit-button-tooltip = Bearbeite Sprachbefehlsliste.
 
 vc-item-can_heal = Kann heilen
 vc-item-defend_lane = Pfad verteidigen ...
