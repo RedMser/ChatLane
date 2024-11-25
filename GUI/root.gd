@@ -87,6 +87,7 @@ func load_cfg():
 	if Config.has_unsaved_changes:
 		$UnsavedLoadConfirm.popup_centered()
 	else:
+		recover_last_save_folder()
 		$LoadDialog.popup_centered()
 
 
@@ -97,14 +98,19 @@ func save_cfg():
 		$SaveDialog.current_file = Config.config_name + ".vpk"
 	else:
 		$SaveDialog.current_file = Config.config_name + ".yml"
+	
+	recover_last_save_folder()
 	$SaveDialog.popup_centered()
 
 
 func locate_vpk_addon():
+	recover_last_save_folder()
 	$LocateDialog.popup_centered()
 
 
 func _on_locate_dialog_dir_selected(dir: String) -> void:
+	store_last_save_folder($LocateDialog.current_dir)
+	
 	var vpks = Array(DirAccess.get_files_at(dir)).filter(func(file):
 		file = file.to_lower()
 		return file.ends_with("_dir.vpk") and file.begins_with("pak") and file != "pak01_dir.vpk"
@@ -132,6 +138,9 @@ func _on_locate_dialog_dir_selected(dir: String) -> void:
 
 func _on_load_dialog_file_selected(path: String) -> void:
 	$Spinner.set_visible_soon(true)
+	
+	store_last_save_folder($LoadDialog.current_dir)
+	
 	var ext = path.to_lower().get_extension()
 	if ext == "vpk":
 		var temp_path = FS.get_temp_file_path("result.yml")
@@ -150,6 +159,8 @@ func _on_load_dialog_file_selected(path: String) -> void:
 
 func _on_save_dialog_file_selected(path: String) -> void:
 	$Spinner.set_visible_soon(true)
+	
+	store_last_save_folder($SaveDialog.current_dir)
 	
 	Config.config_name = path.get_file().get_basename()
 	%ConfigName.text = Config.config_name
@@ -172,6 +183,33 @@ func _on_save_dialog_file_selected(path: String) -> void:
 	else:
 		alert("alert-invalid-file-extension")
 	$Spinner.set_visible_soon(false)
+
+
+func recover_last_save_folder():
+	var last_save_folder
+	if FileAccess.file_exists("user://last_save_folder"):
+		last_save_folder = FileAccess.get_file_as_string("user://last_save_folder")
+	else:
+		var f = FileAccess.open("user://last_save_folder", FileAccess.WRITE)
+		last_save_folder = await Steam.find_deadlock_installation()
+		if !last_save_folder.is_empty():
+			# Select the addons folder (create if does not exist)
+			last_save_folder = last_save_folder.path_join("game/citadel/addons")
+			if !DirAccess.dir_exists_absolute(last_save_folder):
+				DirAccess.make_dir_recursive_absolute(last_save_folder)
+		f.store_string(last_save_folder)
+		f.close()
+	
+	if DirAccess.dir_exists_absolute(last_save_folder):
+		$SaveDialog.current_dir = last_save_folder
+		$LoadDialog.current_dir = last_save_folder
+		$LocateDialog.current_dir = last_save_folder
+
+
+func store_last_save_folder(path: String):
+	var f = FileAccess.open("user://last_save_folder", FileAccess.WRITE)
+	f.store_string(path)
+	f.close()
 
 
 func alert(text: String):
@@ -278,6 +316,7 @@ func _on_unsaved_confirm_confirmed(_after_unsaved_action) -> void:
 
 func _on_unsaved_load_confirm_discard_changes() -> void:
 	$UnsavedLoadConfirm.hide()
+	recover_last_save_folder()
 	$LoadDialog.popup_centered()
 
 
