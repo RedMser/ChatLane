@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3tcj7tf7eej3"]
+
+[ext_resource type="Script" path="res://wheel_preview/wheel_entry.gd" id="1_1ja8x"]
+[ext_resource type="Texture2D" uid="uid://cc0pees4dearh" path="res://wheel_preview/wheel.png" id="1_axbwy"]
+
+[node name="WheelEntry" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1ja8x")
+text = "Wheel Entry Text"
+base_color = Color(0, 0, 0, 0.75)
+button_size = 150.0
+entries = 12
+
+[node name="Radial" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+max_value = 12.0
+step = 0.0
+value = 0.9
+fill_mode = 8
+texture_progress = ExtResource("1_axbwy")
+tint_progress = Color(0, 0, 0, 0.75)
+
+[node name="ButtonDolly" type="Control" parent="Radial"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 82.0
+offset_bottom = 82.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="Radial/ButtonDolly"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0909
+offset_top = -75.0
+offset_right = 93.0909
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(93.0909, 75)
+focus_mode = 0
+theme_override_font_sizes/font_size = 14
+flat = true
+
+[node name="ButtonLabel" type="Label" parent="Radial/ButtonDolly"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0909
+offset_top = -12.0
+offset_right = 93.0909
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(93.0909, 12)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Wheel Entry Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Radial/ButtonDolly/Button" to="." method="_on_button_pressed"]

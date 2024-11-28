@@ -116,6 +116,8 @@ cm-name = Name:
 cm-icon = Symbol:
 cm-items = Sprachbefehle:
 cm-items-empty-state = Sprachbefehle aus der linken Liste hierher ziehen, um sie zu diesem Menü hinzuzufügen.
+cm-items-preview = Vorschau:
+cm-items-preview-explain = Klicke auf die inneren Kreissegmente, um zu sehen, wie das Menü im Spiel aussehen wird.
 
 # Dialogs
 dialog-ok = OK

@@ -155,5 +155,5 @@ scons target=template_release build_profile="GUI/GUIdot.build"
 - [FontAwesome Free](https://fontawesome.com/) (CC-BY 4.0) for some icons in the GUI
 - [Montserrat](https://fonts.google.com/specimen/Montserrat) (OFL) font
 - Deadlock Modding Discord for CSDK
-- 9joao6 for the ChatLane logo
+- 9joao6 for the ChatLane logo and custom menu preview UI
 - Valve for Deadlock

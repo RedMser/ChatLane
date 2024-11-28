@@ -116,6 +116,8 @@ cm-name = Name:
 cm-icon = Icon: 
 cm-items = Voice Commands: 
 cm-items-empty-state = Drag & Drop voice commands from the left list into here to add them to this menu.
+cm-items-preview = Preview:
+cm-items-preview-explain = Click on the inner circle segments to preview how the custom menu will appear in-game.
 
 # Dialogs
 dialog-ok = OK
