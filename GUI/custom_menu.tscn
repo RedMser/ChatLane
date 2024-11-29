@@ -207,7 +207,6 @@ autowrap_mode = 3
 [connection signal="pressed" from="HBoxContainer/DeleteMenu" to="HBoxContainer/DeleteMenu/ConfirmationDialog" method="popup_centered"]
 [connection signal="confirmed" from="HBoxContainer/DeleteMenu/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="item_selected" from="Icons" to="." method="_on_icons_item_selected"]
-[connection signal="add" from="PanelContainer/HSplitContainer/VoiceCommandsList" to="." method="_on_voice_commands_list_add"]
 [connection signal="delete" from="PanelContainer/HSplitContainer/VoiceCommandsList" to="." method="_on_voice_commands_list_delete"]
 [connection signal="move" from="PanelContainer/HSplitContainer/VoiceCommandsList" to="." method="_on_voice_commands_list_move"]
 [connection signal="entry_pressed" from="PanelContainer/HSplitContainer/Preview/InnerWheel" to="PanelContainer/HSplitContainer/Preview" method="_on_inner_wheel_entry_pressed"]

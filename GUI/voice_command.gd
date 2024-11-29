@@ -115,3 +115,8 @@ func _on_ping_wheel_bindable_toggled(toggled_on: bool) -> void:
 	else:
 		Config.override_ping_wheel_bindable[id] = toggled_on
 	Config.has_unsaved_changes = true
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and event.double_click:
+		VoiceCommandsDB.add_voice_command.emit(id)

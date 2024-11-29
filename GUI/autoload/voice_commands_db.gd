@@ -43,6 +43,7 @@ const VC_LIST = [
 	{ "id": "Pinged Teammate", "enabled": true, "category": "broken", "label": "vc-item-pinged_teammate", "isMenu": false, "bindable": false, "pingWheelBindable": false }
 ]
 
+signal add_voice_command(id: String)
 
 
 func grouped_by_categories() -> Dictionary:

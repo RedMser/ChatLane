@@ -1,12 +1,23 @@
 extends Control
 
 
-signal add(id: String)
 signal delete(index: int)
 signal move(from: int, to: int)
 
 const VoiceCommand = preload("res://voice_command.tscn")
 const VOICE_LINES_LIMIT = 12
+
+
+func _enter_tree() -> void:
+	VoiceCommandsDB.add_voice_command.connect(_add_voice_command_by_id)
+
+
+func _exit_tree() -> void:
+	VoiceCommandsDB.add_voice_command.disconnect(_add_voice_command_by_id)
+
+
+func _add_voice_command_by_id(id: String):
+	add_voice_command(VoiceCommandsDB.find(id))
 
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -16,7 +27,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data[0] == "list":
-		add_voice_command(VoiceCommandsDB.find(data[1].id))
+		VoiceCommandsDB.add_voice_command.emit(data[1].id)
 	elif data[0] == "item":
 		var old_index = data[1].get_index()
 		var new_index = get_drop_index(at_position.y)
@@ -33,7 +44,7 @@ func clear():
 	update_voice_counter(0)
 
 
-func add_voice_command(item: Dictionary, emit := true):
+func add_voice_command(item: Dictionary):
 	$EmptyState.hide()
 	
 	var vc = VoiceCommand.instantiate()
@@ -44,8 +55,6 @@ func add_voice_command(item: Dictionary, emit := true):
 	vc.delete.connect(_on_vc_delete.bind(item["id"]))
 	vc.drag_context = "item"
 	%Items.add_child(vc)
-	if emit:
-		add.emit(item["id"])
 	update_voice_counter()
 	update_items_error()
 

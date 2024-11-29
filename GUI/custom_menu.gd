@@ -26,6 +26,14 @@ func _ready() -> void:
 		%Icons.set_item_icon_modulate(%Icons.item_count-1, IconDB.DARK_COLOR)
 
 
+func _enter_tree() -> void:
+	VoiceCommandsDB.add_voice_command.connect(_on_voice_commands_list_add)
+
+
+func _exit_tree() -> void:
+	VoiceCommandsDB.add_voice_command.disconnect(_on_voice_commands_list_add)
+
+
 func update_custom_menu():
 	if custom_menu_index < 0:
 		hide()
@@ -47,7 +55,7 @@ func update_custom_menu():
 	for item in custom_menu["items"]:
 		var found = VoiceCommandsDB.find(item)
 		if found:
-			%VoiceCommandsList.add_voice_command(found, false)
+			%VoiceCommandsList.add_voice_command(found)
 		else:
 			push_error("Unknown voice command ", item)
 	update_preview()
