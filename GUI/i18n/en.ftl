@@ -166,6 +166,7 @@ alert-locate-results = { $count ->
             { $vpks }
 }
 alert-invalid-file-extension = File does not have a valid file extension!
+alert-files-dropped-multiple = You can only drag&drop a single config file onto ChatLane to load it.
 error-cli-generic = Unable to run the CLI tool.
                     Check the console for more details, and report this as an issue on GitHub.
 error-cli-cant-fork = Unable to launch CLI app.

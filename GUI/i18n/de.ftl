@@ -166,6 +166,7 @@ alert-locate-results = { $count ->
             { $vpks }
 }
 alert-invalid-file-extension = Datei hat keine gültige Dateierweiterung!
+alert-files-dropped-multiple = Ziehen Sie eine einzelne Konfigurationsdatei auf ChatLane, um diese zu laden.
 error-cli-generic = Das CLI-Tool konnte nicht ausgeführt werden.
                     Überprüfen Sie die Konsole für weitere Details und melden Sie dies als Problem auf GitHub.
 error-cli-cant-fork = Die CLI-Anwendung konnte nicht gestartet werden.

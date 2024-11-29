@@ -22,6 +22,7 @@ config/icon="res://logo.png"
 
 [autoload]
 
+RootWindow="*res://autoload/root_window.gd"
 I18n="*res://autoload/i18n.gd"
 FirstLaunch="*res://autoload/first_launch.gd"
 IconDB="*res://autoload/icon_db.gd"

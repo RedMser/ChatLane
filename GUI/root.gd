@@ -46,6 +46,14 @@ func _ready() -> void:
 	$"MenuBar/menu-help".set_item_shortcut(0, make_shortcut.call("help-repo"))
 
 
+func _enter_tree() -> void:
+	RootWindow.files_dropped.connect(_on_files_dropped)
+
+
+func _exit_tree() -> void:
+	RootWindow.files_dropped.disconnect(_on_files_dropped)
+
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if Config.has_unsaved_changes:
@@ -328,6 +336,8 @@ func handle_after_unsaved_action():
 			get_tree().quit()
 		"load":
 			load_cfg()
+		"file-drop":
+			_on_file_dropped($UnsavedFileDropConfirm.get_meta("file"))
 	after_unsaved_action = null
 
 
@@ -337,3 +347,28 @@ func _on_edit_vc_list_toggled(toggled_on: bool) -> void:
 		if !(vc is VoiceCommand):
 			continue
 		vc.show_enabled_checkbox = toggled_on
+
+
+func _on_files_dropped(files: PackedStringArray) -> void:
+	if files.is_empty():
+		return
+	elif files.size() > 1:
+		alert("alert-files-dropped-multiple")
+		return
+	var file = files[0]
+	if Config.has_unsaved_changes:
+		$UnsavedFileDropConfirm.set_meta("file", file)
+		$UnsavedFileDropConfirm.popup_centered()
+	else:
+		_on_file_dropped(file)
+
+
+func _on_file_dropped(file: String) -> void:
+	# Remember path of file.
+	$LoadDialog.current_dir = file.get_base_dir()
+	_on_load_dialog_file_selected(file)
+
+
+func _on_unsaved_file_drop_confirm_discard_changes() -> void:
+	$UnsavedFileDropConfirm.hide()
+	_on_file_dropped($UnsavedFileDropConfirm.get_meta("file"))

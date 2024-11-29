@@ -250,6 +250,17 @@ dialog_text = "dialog-unsaved-load-text"
 cancel_button_text = "dialog-cancel"
 script = ExtResource("13_qt76e")
 
+[node name="UnsavedFileDropConfirm" type="ConfirmationDialog" parent="."]
+auto_translate_mode = 1
+title = "dialog-unsaved-load-title"
+initial_position = 2
+size = Vector2i(781, 107)
+ok_button_text = "dialog-unsaved-load-ok"
+dialog_text = "dialog-unsaved-load-text"
+cancel_button_text = "dialog-cancel"
+script = ExtResource("13_qt76e")
+metadata/file = ""
+
 [node name="AboutDialog" type="Window" parent="."]
 title = "dialog-about-title"
 initial_position = 2
@@ -332,6 +343,8 @@ script = ExtResource("8_bf3um")
 [connection signal="confirmed" from="UnsavedExitConfirm" to="." method="_on_unsaved_confirm_confirmed" binds= ["exit"]]
 [connection signal="confirmed" from="UnsavedLoadConfirm" to="." method="_on_unsaved_confirm_confirmed" binds= ["load"]]
 [connection signal="discard_changes" from="UnsavedLoadConfirm" to="." method="_on_unsaved_load_confirm_discard_changes"]
+[connection signal="confirmed" from="UnsavedFileDropConfirm" to="." method="_on_unsaved_confirm_confirmed" binds= ["file-drop"]]
+[connection signal="discard_changes" from="UnsavedFileDropConfirm" to="." method="_on_unsaved_file_drop_confirm_discard_changes"]
 [connection signal="dir_selected" from="LocateDialog" to="." method="_on_locate_dialog_dir_selected"]
 [connection signal="file_selected" from="LoadDialog" to="." method="_on_load_dialog_file_selected"]
 [connection signal="file_selected" from="SaveDialog" to="." method="_on_save_dialog_file_selected"]
