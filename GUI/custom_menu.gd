@@ -85,6 +85,7 @@ func _on_confirmation_dialog_confirmed() -> void:
 
 
 func _on_voice_commands_list_add(id: String) -> void:
+	if custom_menu_index < 0: return
 	custom_menu["items"].append(id)
 	update_preview()
 	Config.has_unsaved_changes = true
