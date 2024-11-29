@@ -7,6 +7,7 @@ extends Control
 		orientation = value
 		if is_node_ready():
 			$InnerWheel.active_index = value
+			update_label2()
 @export var magic_size_number := 300.0
 @export var entries: Array[String] = []:
 	set(value):
@@ -57,6 +58,15 @@ func update_entries():
 		$OuterWheel.entries[i] = txt
 	$OuterWheel.regenerate_entries()
 	update_orientation()
+
+
+func update_label2():
+	if orientation == 0:
+		$Label2.text = "cm-items-preview-bug"
+		$Label2.add_theme_color_override("font_color", Color.RED)
+	else:
+		$Label2.text = "cm-items-preview-explain"
+		$Label2.remove_theme_color_override("font_color")
 
 
 func _on_inner_wheel_entry_pressed(index: int) -> void:

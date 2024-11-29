@@ -151,6 +151,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_5yxfg")
+orientation = 1
 magic_size_number = 350.0
 
 [node name="InnerWheel" parent="PanelContainer/HSplitContainer/Preview" instance=ExtResource("4_b58ya")]
@@ -165,7 +166,7 @@ grow_vertical = 2
 radius_multiplier = 0.394857
 entries = Array[String]([" ", " ", " ", " ", " ", " ", " ", " "])
 click_to_activate = true
-active_index = 0
+active_index = 1
 
 [node name="OuterWheel" parent="PanelContainer/HSplitContainer/Preview" instance=ExtResource("4_b58ya")]
 layout_mode = 1
@@ -176,7 +177,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.261799
+rotation = 1.0472
 radius_multiplier = 0.6219
 entries = Array[String](["", "", "", "", "", "", "", "", "", "", "", ""])
 click_to_activate = false
@@ -199,6 +200,8 @@ offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "cm-items-preview-explain"
+vertical_alignment = 2
+autowrap_mode = 3
 
 [connection signal="text_changed" from="HBoxContainer/Name" to="." method="_on_name_text_changed"]
 [connection signal="pressed" from="HBoxContainer/DeleteMenu" to="HBoxContainer/DeleteMenu/ConfirmationDialog" method="popup_centered"]
