@@ -84,16 +84,16 @@ vc-item-youre_welcome = Gern geschehen
 
 vc-item-defend_blue = Verteidige Blau
 vc-item-defend_green = Verteidige Grün
-vc-item-defend_purple = Verteidige Lila
+vc-item-defend_purple = Verteidige Violett
 vc-item-defend_yellow = Verteidige Gelb
-vc-item-headed_to_blue = Gehe zu Blau
-vc-item-heading_to_green = Gehe zu Grün
-vc-item-headed_to_purple = Gehe zu Lila
-vc-item-heading_to_yellow = Gehe zu Gelb
-vc-item-push_blue = Blau angreifen
-vc-item-push_green = Grün angreifen
-vc-item-push_purple = Lila angreifen
-vc-item-push_yellow = Gelb angreifen
+vc-item-headed_to_blue = Bin unterwegs nach Blau
+vc-item-heading_to_green = Bin unterwegs nach Grün
+vc-item-headed_to_purple = Bin unterwegs nach Violett
+vc-item-heading_to_yellow = Bin unterwegs nach Gelb
+vc-item-push_blue = Stoßt auf Blau vor
+vc-item-push_green = Stoßt auf Grün vor
+vc-item-push_purple = Stoßt auf Violett vor
+vc-item-push_yellow = Stoßt auf Gelb vor
 
 vc-item-no = Nein!
 vc-item-on_my_way = Bin unterwegs
@@ -105,7 +105,7 @@ vc-item-thanks_post_game_all_chat = Danke (nach Spiel)
 vc-item-well_played_post_game_all_chat = Gut gespielt (nach Spiel)
 vc-item-missing = (Gegner) fehlt
 vc-item-pinged_enemy_player = Ich sehe (Gegner)
-vc-item-pinged_teammate = Vorsicht (Teamkollege)
+vc-item-pinged_teammate = Vorsicht, (Teamkollege)
 
 # Custom Menus
 cm-title = Eigene Menüs
