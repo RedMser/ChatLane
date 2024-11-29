@@ -144,6 +144,10 @@ scons target=template_release build_profile="GUI/GUIdot.build"
 
 - **None of the UI strings are translated.**
   - Open the GUI project in Godot (see instructions above for executable download) and launch the project with F5. Then re-run the `prepare_build.ps1` script.
+- **Compiling the CLI shows warnings.**
+  - These are expected, see #1 for cleaning them up.
+- **Compiling the GUI shows errors.**
+  - Some errors are expected, due to how Godot loads the editor headless, or due to the fluent add-on. Simply check if the export succeeded, and if the app works as expected, without worrying much about the error logs.
 
 ## Third-Party
 
