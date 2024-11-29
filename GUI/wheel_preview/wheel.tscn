@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c05gpa5s42fjj"]
+
+[ext_resource type="Script" path="res://wheel_preview/wheel.gd" id="1_ewwyg"]
+
+[node name="Wheel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_ewwyg")
+click_to_activate = null
+active_index = null

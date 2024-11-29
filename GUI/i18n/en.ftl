@@ -116,6 +116,9 @@ cm-name = Name:
 cm-icon = Icon: 
 cm-items = Voice Commands: 
 cm-items-empty-state = Drag & Drop voice commands from the left list into here to add them to this menu.
+cm-items-preview = Preview:
+cm-items-preview-explain = Click on the inner circle segments to preview how the custom menu would appear in the chat wheel.
+cm-items-preview-bug = Due to a bug in Deadlock itself, assigning a menu to the top will make it open on the bottom of the chat wheel.
 
 # Dialogs
 dialog-ok = OK
@@ -148,7 +151,7 @@ dialog-filter-vpk-addon = VPK Addon
 dialog-filter-vpk-file = VPK File
 dialog-filter-config = Chat Wheel Config
 dialog-custom-menu-limit-title = About Custom Menus
-dialog-custom-menu-limit-text = Deadlock has voice command menus which you can bind in the chat wheel (e.g. "Push Lane").
+dialog-custom-menu-limit-text = Deadlock has voice command menus which you can bind in the chat wheel (e.g. "Push Lane ...").
                                 This tool allows you to create custom menus, which get added to the chat wheel settings list.
                                 
                                 As of 13th Nov. 2024, Deadlock has a bug that only allows a single menu to be active

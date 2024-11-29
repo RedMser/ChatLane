@@ -116,6 +116,9 @@ cm-name = Name:
 cm-icon = Symbol:
 cm-items = Sprachbefehle:
 cm-items-empty-state = Sprachbefehle aus der linken Liste hierher ziehen, um sie zu diesem Menü hinzuzufügen.
+cm-items-preview = Vorschau:
+cm-items-preview-explain = Klicke auf die inneren Kreissegmente, um zu sehen, wie das Menü im Chatrad aussehen würde.
+cm-items-preview-bug = Wenn man ein Menü nach oben zuweist, wird aufgrund eines Fehlers in Deadlock das Menü unten im Chatrad öffnen.
 
 # Dialogs
 dialog-ok = OK
@@ -148,7 +151,7 @@ dialog-filter-vpk-addon = VPK-Addon
 dialog-filter-vpk-file = VPK-Datei
 dialog-filter-config = Chatrad-Konfiguration
 dialog-custom-menu-limit-title = Über benutzerdefinierte Menüs
-dialog-custom-menu-limit-text = Deadlock verfügt über Sprachbefehlsmenüs, die Sie im Chatrad zuweisen können (z.B. "Auf Pfad vorstoßen").
+dialog-custom-menu-limit-text = Deadlock verfügt über Sprachbefehlsmenüs, die Sie im Chatrad zuweisen können (z.B. "Pfad verteidigen ...").
                                 Mit diesem Tool können Sie benutzerdefinierte Menüs erstellen, die zur Liste der Chatrad-Einstellungen hinzugefügt werden.
                                 
                                 Seit dem 13. November 2024 gibt es in Deadlock einen Bug, weswegen nur ein einziges Menü gleichzeitig im Chat-Rad aktiv

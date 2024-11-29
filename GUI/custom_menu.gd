@@ -43,13 +43,14 @@ func update_custom_menu():
 	else:
 		%Icons.select(0)
 
-	$VoiceCommandsList.clear()
+	%VoiceCommandsList.clear()
 	for item in custom_menu["items"]:
 		var found = VoiceCommandsDB.find(item)
 		if found:
-			$VoiceCommandsList.add_voice_command(found, false)
+			%VoiceCommandsList.add_voice_command(found, false)
 		else:
 			push_error("Unknown voice command ", item)
+	update_preview()
 
 
 func _on_name_text_changed(new_text: String) -> void:
@@ -77,15 +78,31 @@ func _on_confirmation_dialog_confirmed() -> void:
 
 func _on_voice_commands_list_add(id: String) -> void:
 	custom_menu["items"].append(id)
+	update_preview()
 	Config.has_unsaved_changes = true
 
 
 func _on_voice_commands_list_move(from: int, to: int) -> void:
 	var item = custom_menu["items"].pop_at(from)
 	custom_menu["items"].insert(to, item)
+	update_preview()
 	Config.has_unsaved_changes = true
 
 
 func _on_voice_commands_list_delete(index: int) -> void:
 	custom_menu["items"].remove_at(index)
+	update_preview()
 	Config.has_unsaved_changes = true
+
+
+func update_preview():
+	var arr: Array[String] = []
+	for id in custom_menu["items"]:
+		var item = VoiceCommandsDB.find(id)
+		var label = id
+		if !item.is_empty():
+			label = item["label"]
+		# Gain some space
+		label = tr(label).replace(" ", "\n")
+		arr.append(label)
+	%Preview.entries = arr
