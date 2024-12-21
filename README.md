@@ -117,7 +117,7 @@ You will need [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.
 
 ### GUI
 
-You will need to place Godot executables so they can be discovered by the tooling, like so:
+You will need to place Godot executables so they can be discovered by the tooling. Make sure to also rename them to conform to the following file names:
 
 ```
 ChatLane
@@ -131,10 +131,9 @@ ChatLane
           godot.windows.template_release.x86_64.exe
 ```
 
-[Download the **custom** Godot 4.4 build](https://github.com/RedMser/godot/releases/tag/chatlane-1) that was used for this. It relies on [this pending PR](https://github.com/godotengine/godot/pull/77907) as well as some minor bug fixes [[1]](https://github.com/godotengine/godot/pull/99223)[[2]](https://github.com/godotengine/godot/pull/99266).
-When using [official 4.4 builds](https://godotengine.org/download/preview/) instead, you may be able to circumvent the errors caused by the unmerged PR by replacing `tmp://` paths in the project.
+You must use [**Godot 4.4 dev 6** or newer](https://godotengine.org/download/preview/) to avoid errors in the script files.
 
-Additionally, a build profile was used to reduce the export template file size slightly:
+For the releases of ChatLane, a build profile was used. This step is fully optional, but it helps to reduce the export template file size slightly:
 
 ```
 scons target=template_release build_profile="GUI/GUIdot.build"

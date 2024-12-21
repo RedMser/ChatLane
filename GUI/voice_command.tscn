@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bb45jskpc0d1x"]
 
-[ext_resource type="Script" path="res://voice_command.gd" id="1_xiyvh"]
+[ext_resource type="Script" uid="uid://vqps2y80kk5l" path="res://voice_command.gd" id="1_xiyvh"]
 [ext_resource type="Texture2D" uid="uid://dwe25n6wnjvu0" path="res://fontawesome/times-circle.svg" id="2_ddif4"]
 [ext_resource type="Texture2D" uid="uid://yi71kumapbb4" path="res://fontawesome/life-ring.svg" id="2_wuo82"]
 [ext_resource type="Texture2D" uid="uid://dxxw3mcgnda0a" path="res://fontawesome/keyboard.svg" id="3_c13al"]

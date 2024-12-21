@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://8y6m86pylxc3"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_vyht1"]
+[ext_resource type="Script" uid="uid://bcgqrnv5m4rkt" path="res://root.gd" id="1_vyht1"]
 [ext_resource type="FontFile" uid="uid://ibm63svw370k" path="res://fonts/Montserrat-Italic.ttf" id="2_bf3um"]
 [ext_resource type="Texture2D" uid="uid://b5w5tr85okcu5" path="res://fontawesome/file.svg" id="2_qwhpj"]
 [ext_resource type="Texture2D" uid="uid://bqsbm57nj3hyw" path="res://fontawesome/folder-open.svg" id="3_qt76e"]
@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://bwbjiw3xh6mep" path="res://custom_menu.tscn" id="5_jnlp7"]
 [ext_resource type="Texture2D" uid="uid://dpl5iiaroovxg" path="res://fontawesome/save.svg" id="5_r3r3k"]
 [ext_resource type="Texture2D" uid="uid://ij7rdcds3rwr" path="res://fontawesome/share-square.svg" id="6_blcw0"]
-[ext_resource type="Script" path="res://unsaved_exit_confirm.gd" id="6_l8v81"]
-[ext_resource type="Script" path="res://about_dialog.gd" id="7_vyht1"]
-[ext_resource type="Script" path="res://spinner.gd" id="8_bf3um"]
+[ext_resource type="Script" uid="uid://plmwilxlpxhw" path="res://unsaved_exit_confirm.gd" id="6_l8v81"]
+[ext_resource type="Script" uid="uid://cqtqdnlj7qvoy" path="res://about_dialog.gd" id="7_vyht1"]
+[ext_resource type="Script" uid="uid://djndwiusvf8x5" path="res://spinner.gd" id="8_bf3um"]
 [ext_resource type="Texture2D" uid="uid://6ivc716twpne" path="res://fontawesome/edit.svg" id="8_qt76e"]
-[ext_resource type="Script" path="res://voice_lines.gd" id="8_sq7yr"]
+[ext_resource type="Script" uid="uid://18hdyticc0f3" path="res://voice_lines.gd" id="8_sq7yr"]
 [ext_resource type="Texture2D" uid="uid://b756yecrsww0j" path="res://fontawesome/plus-square.svg" id="10_50g4q"]
-[ext_resource type="Script" path="res://unsaved_load_confirm.gd" id="13_qt76e"]
+[ext_resource type="Script" uid="uid://txfarm8ymkw1" path="res://unsaved_load_confirm.gd" id="13_qt76e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf3um"]
 bg_color = Color(0.422436, 0.632692, 0.430069, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2igoqwjkmkbo"]
 
-[ext_resource type="Script" path="res://voice_command_section.gd" id="1_10q45"]
+[ext_resource type="Script" uid="uid://bniaqblrbrfre" path="res://voice_command_section.gd" id="1_10q45"]
 [ext_resource type="Texture2D" uid="uid://dt1ei21lwbr7k" path="res://fontawesome/question-circle.svg" id="2_bxjar"]
 
 [node name="VoiceCommandSection" type="PanelContainer"]
