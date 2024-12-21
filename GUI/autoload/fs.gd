@@ -34,15 +34,20 @@ static func get_registry_value(key: String, value: String) -> String:
 	return ""
 
 
-static func get_temp_file_access(name: String, access = FileAccess.WRITE) -> FileAccess:
-	return FileAccess.open("tmp://chatlane_" + str(randi()) + "_" + name, access)
+static func get_temp_file_access(name: String, keep := false, access = FileAccess.WRITE) -> FileAccess:
+	assert(!name.is_empty())
+	var filename = name.get_basename()
+	var extension = name.get_extension()
+	assert(!extension.is_empty())
+	return FileAccess.create_temp(access, "chatlane-" + filename, extension, keep)
 
 
-static func get_temp_file_path(name: String, needs_write_permission := true) -> String:
-	var fa = get_temp_file_access(name, FileAccess.WRITE if needs_write_permission else FileAccess.READ)
-	var path = fa.get_path_absolute()
-	fa.close()
-	return path
+static func get_temp_file_path(name: String) -> String:
+	assert(!name.is_empty())
+	var filename = name.get_basename()
+	var extension = name.get_extension()
+	assert(!extension.is_empty())
+	return OS.get_temp_dir().path_join("chatlane-" + filename + "." + extension)
 
 
 static func get_installation_path() -> String:

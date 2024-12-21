@@ -5,7 +5,6 @@ var after_unsaved_action
 
 
 func _init() -> void:
-	randomize()
 	Config.error.connect(func(msg): alert(TranslationFluent.args("config-load-error-template", { "cause": msg })))
 	Config.loaded.connect(_on_config_loaded)
 	Config.unsaved_status_changed.connect(func():
@@ -176,7 +175,7 @@ func _on_save_dialog_file_selected(path: String) -> void:
 	var ext = path.to_lower().get_extension()
 	var yaml = Config.save_cfg()
 	if ext == "vpk":
-		var temp = FS.get_temp_file_access("input.yml")
+		var temp = FS.get_temp_file_access("input.yml", true)
 		var temp_path = temp.get_path_absolute()
 		temp.store_string(yaml)
 		temp.close()
