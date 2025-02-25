@@ -212,7 +212,7 @@ public class WriteBinaryKV3 : IDisposable
                 {
                     return new KVValue(KVType.DOUBLE_ZERO, 0.0);
                 }
-                else if (Math.Abs(d) > (1.0 - epsilon) && Math.Abs(d) < (1.0 + epsilon))
+                else if (d > (1.0 - epsilon) && d < (1.0 + epsilon))
                 {
                     return new KVValue(KVType.DOUBLE_ONE, 1.0);
                 }
@@ -246,7 +246,12 @@ public class WriteBinaryKV3 : IDisposable
             case "String": return new KVValue(KVType.STRING, (string)value);
             case "Boolean": return new KVValue(KVType.BOOLEAN, (bool)value);
             case "Int32": return new KVValue(KVType.INT32, (int)value);
+            case "Double": return new KVValue(KVType.DOUBLE, (double)value);
             case "KVValue": return (KVValue)value;
+            case "KVObject": {
+                var obj = (KVObject)value;
+                return new KVValue(obj.IsArray ? KVType.ARRAY : KVType.OBJECT, obj);
+            }
         }
         throw new NotImplementedException($"MakeValue for type {value.GetType().Name}");
     }
