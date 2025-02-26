@@ -70,7 +70,7 @@ vc-item-defend_lane = Pfad verteidigen ...
 vc-item-going_in = Ich gehe rein
 vc-item-good_job = Gut gemacht
 vc-item-headed_to_lane = Bin unterwegs zum Pfad ...
-vc-item-headed_to_shop_base = Bin unterwegs zur Basis
+vc-item-headed_to_shop_base = Bin gleich zurück
 vc-item-help_with_idol = Mit Seelenurne helfen
 vc-item-help = Hilfe
 vc-item-need_heal = Brauche Heilung
@@ -100,12 +100,28 @@ vc-item-on_my_way = Bin unterwegs
 vc-item-yes = Ja
 
 vc-item-good_game_post_game_all_chat = Gutes Spiel [ALLE]
-vc-item-good_job_post_game_all_chat = Gut gemacht (nach Spiel)
+vc-item-good_job_post_game_all_chat = Gut gemacht [ALLE]
 vc-item-thanks_post_game_all_chat = Danke (nach Spiel)
-vc-item-well_played_post_game_all_chat = Gut gespielt (nach Spiel)
+vc-item-well_played_post_game_all_chat = Gut gespielt [ALLE]
 vc-item-missing = (Gegner) fehlt
 vc-item-pinged_enemy_player = Ich sehe (Gegner)
 vc-item-pinged_teammate = Vorsicht, (Teamkollege)
+
+vc-item-going_to_shop = Ich gehe zum Laden
+vc-item-request_follow = Kommt mit mir!
+vc-item-going_to_gank = Ich komme für einen Gank
+vc-item-rejuv_drop = Reinkarnator sinkt
+vc-item-need_cover = Gebt mir Deckung
+vc-item-nevermind = Schon gut
+vc-item-no_teamfight = Nicht bereit für Teamkampf
+vc-item-press_the_advantage = Vorteil ausbauen
+vc-item-lets_hide_here = Hier auflauern
+vc-item-its_dangerous = Es ist gefährlich
+vc-item-ill_clear_troopers = Ich vernichte die Infanterie
+vc-item-meet_here = Hier treffen
+vc-item-flank = Ich flankiere
+vc-item-pregame_pings = Verspottung vor Spiel [ALLE]
+vc-item-leave_area = Verlasse Gegend
 
 # Custom Menus
 cm-title = Eigene Menüs

@@ -40,7 +40,23 @@ const VC_LIST = [
 	{ "id": "Well Played (Post Game) - All Chat", "enabled": true, "category": "broken", "label": "vc-item-well_played_post_game_all_chat", "isMenu": false, "bindable": false, "pingWheelBindable": false },
 	{ "id": "Missing", "enabled": true, "category": "broken", "label": "vc-item-missing", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Pinged Enemy Player", "enabled": true, "category": "broken", "label": "vc-item-pinged_enemy_player", "isMenu": false, "bindable": false, "pingWheelBindable": false },
-	{ "id": "Pinged Teammate", "enabled": true, "category": "broken", "label": "vc-item-pinged_teammate", "isMenu": false, "bindable": false, "pingWheelBindable": false }
+	{ "id": "Pinged Teammate", "enabled": true, "category": "broken", "label": "vc-item-pinged_teammate", "isMenu": false, "bindable": false, "pingWheelBindable": false },
+
+	{ "id": "Going to Shop", "enabled": true, "category": "default", "label": "vc-item-going_to_shop", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Request Follow", "enabled": true, "category": "default", "label": "vc-item-request_follow", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Going to Gank", "enabled": true, "category": "default", "label": "vc-item-going_to_gank", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Rejuv Drop", "enabled": true, "category": "default", "label": "vc-item-rejuv_drop", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Need Cover", "enabled": true, "category": "default", "label": "vc-item-need_cover", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Nevermind", "enabled": true, "category": "default", "label": "vc-item-nevermind", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "No Teamfight", "enabled": true, "category": "default", "label": "vc-item-no_teamfight", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Press The Advantage", "enabled": true, "category": "default", "label": "vc-item-press_the_advantage", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Lets Hide Here", "enabled": true, "category": "default", "label": "vc-item-lets_hide_here", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Its Dangerous", "enabled": true, "category": "default", "label": "vc-item-its_dangerous", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "I\\'ll Clear Troopers", "enabled": true, "category": "default", "label": "vc-item-ill_clear_troopers", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Meet Here", "enabled": true, "category": "default", "label": "vc-item-meet_here", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Flank", "enabled": true, "category": "default", "label": "vc-item-flank", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Pregame Pings", "enabled": true, "category": "broken", "label": "vc-item-pregame_pings", "isMenu": false, "bindable": false, "pingWheelBindable": false },
+	{ "id": "Leave Area", "enabled": true, "category": "wip", "label": "vc-item-leave_area", "isMenu": false, "bindable": false, "pingWheelBindable": false },
 ]
 
 signal add_voice_command(id: String)

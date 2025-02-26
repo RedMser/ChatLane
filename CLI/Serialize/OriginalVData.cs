@@ -6,7 +6,7 @@ public static class OriginalVData
 {
     public static KVObject GetData()
     {
-        // scripts/ping_wheel_messages.vdata extracted at 25th November.
+        // scripts/ping_wheel_messages.vdata extracted at 26th February 2025.
         var contents = """
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
@@ -48,6 +48,15 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 3
 		m_bPingWheelBindable = true
 		m_bBindable = true
+		m_vecRespondsToConcepts = 
+		[
+			"CITADEL_PING_ATTACK_ENEMY",
+			"CITADEL_PING_GET_BACK",
+			"CITADEL_PING_STAY_TOGETHER",
+			"CITADEL_PING_RETREAT",
+			"CITADEL_PING_HELP_WITH_IDOL",
+			"CITADEL_PING_REQUEST_FOLLOW",
+		]
 	}
 	Thanks = 
 	{
@@ -96,7 +105,6 @@ public static class OriginalVData
 		m_ePingConcept = "CITADEL_PING_DEFEND_LANE"
 		m_unPingWheelOptionID = 7
 		m_bIsSubnavMessage = false
-		m_eSliceType = "CITADEL_PING_WHEEL_SUBNAV_ONE_SLICE"
 		m_vecSubnavMessageNames = 
 		[
 			"Defend Blue",
@@ -152,8 +160,8 @@ public static class OriginalVData
 	"Headed To Shop/Base" = 
 	{
 		m_unPingWheelOptionID = 12
-		m_strLabelToken = "#citadel_chatwheel_label_HeadedTo"
-		m_strMessageToken = "#citadel_chatwheel_label_HeadedTo"
+		m_strLabelToken = "#citadel_chatwheel_label_BRB"
+		m_strMessageToken = "#citadel_chatwheel_message_BRB"
 		m_ePingConcept = "CITADEL_PING_HEADED_TO_BASE"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
 		m_strIcon = "file://{images}/hud/ping/ping_icon_shop.svg"
@@ -200,7 +208,7 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_message_WellPlayed"
 		m_ePingConcept = "CITADEL_PING_WELL_PLAYED_ALLCHAT"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
-		m_eRecipientsType = "k_ECitadelRecipients_GlobalFriendlyTeam"
+		m_eRecipientsType = "k_ECitadelRecipients_GlobalAllChat"
 		m_strIcon = "file://{images}/hud/ping/ping_icon_thanks.svg"
 	}
 	"Thanks (Post Game) - All Chat" = 
@@ -220,7 +228,7 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_message_GoodJobGameOver"
 		m_ePingConcept = "CITADEL_PING_GOODJOB_ALLCHAT"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_HideMarkerAndSound"
-		m_eRecipientsType = "k_ECitadelRecipients_GlobalFriendlyTeam"
+		m_eRecipientsType = "k_ECitadelRecipients_GlobalAllChat"
 		m_strIcon = "file://{images}/hud/ping/ping_icon_thanks.svg"
 	}
 	"On My Way" = 
@@ -232,6 +240,17 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_label_OMW"
 		m_bPingWheelBindable = true
 		m_bBindable = true
+		m_vecRespondsToConcepts = 
+		[
+			"CITADEL_PING_LETS_GO_THIS_WAY",
+			"CITADEL_PING_MID",
+			"CITADEL_PING_PUSH_LANE",
+			"CITADEL_PING_DEFEND_LANE",
+			"CITADEL_PING_IDOL",
+			"CITADEL_PING_HEADING_TO_LANE",
+			"CITADEL_PING_MEET_HERE",
+		]
+		m_strIcon = ""
 	}
 	"Push Lane" = 
 	{
@@ -242,7 +261,6 @@ public static class OriginalVData
 		m_strMessageToken = "#citadel_chatwheel_label_Push"
 		m_bIsSubnavMessage = false
 		m_strIcon = "file://{images}/hud/ping/ping_objective.svg"
-		m_eSliceType = "CITADEL_PING_WHEEL_SUBNAV_ONE_SLICE"
 		m_vecSubnavMessageNames = 
 		[
 			"Push Blue",
@@ -319,9 +337,8 @@ public static class OriginalVData
 	{
 		m_unPingWheelOptionID = 31
 		m_ePingConcept = "CITADEL_PING_MISSING"
-		m_strLabelToken = "#citadel_chatwheel_label_Missing"
+		m_strLabelToken = "#citadel_chatwheel_label_missing"
 		m_strMessageToken = "#citadel_chatwheel_message_missing_hero"
-		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_question.svg"
 		m_bPingWheelBindable = true
@@ -332,8 +349,8 @@ public static class OriginalVData
 		m_ePingConcept = "CITADEL_PING_NEED_HEAL"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_OnlyPlaySound"
 		m_eRecipientsType = "k_ECitadelRecipients_RecipientsAroundPlayer"
-		m_strLabelToken = "#Citadel_Ping_HealMessage"
-		m_strMessageToken = "#ping_need_heal"
+		m_strLabelToken = "#citadel_chatwheel_need_heal"
+		m_strMessageToken = "#citadel_chatwheel_heal_please"
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_WARNING"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
@@ -345,8 +362,8 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 33
 		m_ePingConcept = "CITADEL_PING_HAVE_HEAL"
 		m_eRecipientsType = "k_ECitadelRecipients_RecipientsAroundPlayer"
-		m_strLabelToken = "#Citadel_Ping_CanHealMessage"
-		m_strMessageToken = "#ping_can_heal"
+		m_strLabelToken = "#citadel_chatwheel_have_heal"
+		m_strMessageToken = "#citadel_chatwheel_can_heal"
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_WARNING"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 50.000000
@@ -358,8 +375,8 @@ public static class OriginalVData
 	{
 		m_unPingWheelOptionID = 34
 		m_ePingConcept = "CITADEL_PING_NEED_PLAN"
-		m_strLabelToken = "#ping_need_plan"
-		m_strMessageToken = "#ping_need_plan"
+		m_strLabelToken = "#citadel_chatwheel_need_plan"
+		m_strMessageToken = "#citadel_chatwheel_need_plan"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 25.000000
 		m_strIcon = "file://{images}/hud/ping/ping_icon_question.svg"
@@ -418,7 +435,6 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 42
 		m_ePingConcept = "CITADEL_PING_HEADING_TO_LANE"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
-		m_eSliceType = "CITADEL_PING_WHEEL_SUBNAV_ONE_SLICE"
 		m_vecSubnavMessageNames = 
 		[
 			"Heading to Yellow Subnav",
@@ -426,8 +442,8 @@ public static class OriginalVData
 			"Headed to Blue Subnav",
 			"Headed to Purple Subnav",
 		]
-		m_strMessageToken = "#citadel_chatwheel_message_HeadedToLane"
-		m_strLabelToken = "#citadel_chatwheel_message_HeadedToLane"
+		m_strMessageToken = ""
+		m_strLabelToken = "#citadel_chatwheel_message_headed_to_lane"
 		m_strIcon = "file://{images}/hud/ping/ping_icon_going_in.svg"
 		m_bBindable = true
 	}
@@ -436,33 +452,186 @@ public static class OriginalVData
 		m_unPingWheelOptionID = 43
 		m_ePingConcept = "CITADEL_PING_HELP_WITH_IDOL"
 		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerAndSound"
-		m_strMessageToken = "#ping_help_with_idol_message"
-		m_strLabelToken = "#ping_help_with_idol_label"
+		m_strMessageToken = "#citadel_chatwheel_help_with_idol_message"
+		m_strLabelToken = "#citadel_chatwheel_help_with_idol_label"
 		m_bBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_MAP_PING"
 		m_bPingWheelBindable = true
+		m_vecRespondsToConcepts = 
+		[
+		]
+		m_strIcon = "file://{images}/hud/ping/ping_icon_help.svg"
 	}
 	"You\'re Welcome" = 
 	{
 		m_unPingWheelOptionID = 44
 		m_ePingConcept = "CITADEL_PING_YOURE_WELCOME"
 		m_eRecipientsType = "k_ECitadelRecipients_RecipientsAroundPlayer"
-		m_strLabelToken = "#ping_youre_welcome"
-		m_strMessageToken = "#ping_youre_welcome"
+		m_strLabelToken = "#citadel_chatwheel_youre_welcome"
+		m_strMessageToken = "#citadel_chatwheel_youre_welcome"
 		m_bBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_NONE"
 		m_flPhraseTopMarginOffset = 30.000000
 		m_bPingWheelBindable = true
+		m_vecRespondsToConcepts = 
+		[
+			"CITADEL_PING_THANK_YOU",
+		]
+		m_strIcon = "file://{images}/hud/ping/ping_icon_heart.svg"
 	}
 	Sorry = 
 	{
 		m_unPingWheelOptionID = 45
 		m_ePingConcept = "CITADEL_PING_SORRY"
-		m_strLabelToken = "#ping_sorry"
-		m_strMessageToken = "#ping_sorry"
+		m_strLabelToken = "#citadel_chatwheel_sorry"
+		m_strMessageToken = "#citadel_chatwheel_sorry"
 		m_bBindable = true
 		m_flPhraseTopMarginOffset = 40.000000
 		m_bPingWheelBindable = true
+		m_strIcon = "file://{images}/hud/ping/ping_icon_heart.svg"
+	}
+	"Going to Shop" = 
+	{
+		m_unPingWheelOptionID = 46
+		m_ePingConcept = "CITADEL_PING_GOING_TO_SHOP"
+		m_strLabelToken = "#citadel_chatwheel_going_shop"
+		m_strMessageToken = "#citadel_chatwheel_going_shop"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_strIcon = "file://{images}/hud/ping/ping_icon_shop.svg"
+	}
+	"Request Follow" = 
+	{
+		m_unPingWheelOptionID = 47
+		m_ePingConcept = "CITADEL_PING_REQUEST_FOLLOW"
+		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
+		m_strLabelToken = "#citadel_chatwheel_message_Request_Follow"
+		m_strMessageToken = "#citadel_chatwheel_message_Request_Follow"
+		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_MAP_PING"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+	}
+	"Going to Gank" = 
+	{
+		m_unPingWheelOptionID = 48
+		m_ePingConcept = "CITADEL_PING_GOING_TO_GANK"
+		m_strLabelToken = "#citadel_chatwheel_message_gank"
+		m_strMessageToken = "#citadel_chatwheel_message_gank"
+		m_bPingWheelBindable = true
+		m_bBindable = true
+	}
+	"Rejuv Drop" = 
+	{
+		m_unPingWheelOptionID = 49
+		m_ePingConcept = "CITADEL_PING_REJUV_DROP"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_strMessageToken = "#citadel_chatwheel_message_Rejuv_Drop"
+		m_strLabelToken = "#citadel_chatwheel_label_Rejuv_Drop"
+	}
+	"Need Cover" = 
+	{
+		m_unPingWheelOptionID = 50
+		m_ePingConcept = "CITADEL_PING_NEED_COVER"
+		m_strLabelToken = "#citadel_chatwheel_label_need_cover"
+		m_strMessageToken = "#citadel_chatwheel_message_need_cover"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+	}
+	Nevermind = 
+	{
+		m_unPingWheelOptionID = 51
+		m_strLabelToken = "#citadel_chatwheel_label_nevermind"
+		m_strMessageToken = "#citadel_chatwheel_message_nevermind"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_ePingConcept = "CITADEL_PING_NEVERMIND"
+	}
+	"No Teamfight" = 
+	{
+		m_unPingWheelOptionID = 52
+		m_strLabelToken = "#citadel_chatwheel_label_no_teamfight"
+		m_strMessageToken = "#citadel_chatwheel_message_no_teamfight"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_ePingConcept = "CITADEL_PING_NO_TEAMFIGHT"
+	}
+	"Press The Advantage" = 
+	{
+		m_unPingWheelOptionID = 53
+		m_strLabelToken = "#citadel_chatwheel_label_press_advantage"
+		m_strMessageToken = "#citadel_chatwheel_message_press_advantage"
+		m_ePingConcept = "CITADEL_PING_PRESS_ADVANTAGE"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+	}
+	"Lets Hide Here" = 
+	{
+		m_unPingWheelOptionID = 54
+		m_ePingConcept = "CITADEL_PING_LETS_HIDE"
+		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
+		m_strLabelToken = "#citadel_chatwheel_label_lets_hide"
+		m_strMessageToken = "#citadel_chatwheel_message_lets_hide"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_MAP_PING"
+	}
+	"Its Dangerous" = 
+	{
+		m_unPingWheelOptionID = 55
+		m_ePingConcept = "CITADEL_PING_DANGER_AREA"
+		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
+		m_strLabelToken = "#citadel_chatwheel_label_danger_area"
+		m_strMessageToken = "#citadel_chatwheel_message_danger_area"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_ATTACK"
+	}
+	"I\'ll Clear Troopers" = 
+	{
+		m_unPingWheelOptionID = 56
+		m_ePingConcept = "CITADEL_PING_CLEAR_TROOPERS"
+		m_strLabelToken = "#citadel_chatwheel_label_clear_troopers"
+		m_strMessageToken = "#citadel_chatwheel_message_clear_troopers"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+	}
+	"Meet Here" = 
+	{
+		m_unPingWheelOptionID = 57
+		m_ePingConcept = "CITADEL_PING_MEET_HERE"
+		m_ePingMarkerInfo = "k_EPingMarkerInfo_ShowMarkerOnSender"
+		m_strLabelToken = "#citadel_chatwheel_label_meet_here"
+		m_strMessageToken = "#citadel_chatwheel_message_meet_here"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_MAP_PING"
+	}
+	Flank = 
+	{
+		m_unPingWheelOptionID = 58
+		m_strLabelToken = "#citadel_chatwheel_label_flank"
+		m_ePingConcept = "CITADEL_PING_FLANK"
+		m_strMessageToken = "#citadel_chatwheel_message_flank"
+		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_NONE"
+		m_bBindable = true
+		m_bPingWheelBindable = true
+	}
+	"Pregame Pings" = 
+	{
+		m_unPingWheelOptionID = 59
+		m_ePingConcept = "CITADEL_PING_PREGAME"
+		m_eRecipientsType = "k_ECitadelRecipients_GlobalAllChat"
+	}
+	"Leave Area" = 
+	{
+		m_unPingWheelOptionID = 60
+		m_ePingConcept = "CITADEL_PING_LEAVE_AREA"
+		m_eRecipientsType = "k_ECitadelRecipients_RecipientsAroundPlayer"
+		m_strLabelToken = "#citadel_chatwheel_label_leaving_area"
+		m_strMessageToken = "#citadel_chatwheel_message_leaving_area"
+		m_bPingWheelBindable = true
+		m_bBindable = true
 	}
 }
 """;

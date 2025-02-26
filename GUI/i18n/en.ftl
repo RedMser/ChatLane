@@ -70,7 +70,7 @@ vc-item-defend_lane = Defend Lane ...
 vc-item-going_in = Going In
 vc-item-good_job = Good Job
 vc-item-headed_to_lane = Headed to Lane ...
-vc-item-headed_to_shop_base = Headed to Shop/Base
+vc-item-headed_to_shop_base = Be Right Back
 vc-item-help_with_idol = Help With Idol
 vc-item-help = Help
 vc-item-need_heal = Need Heal
@@ -100,12 +100,28 @@ vc-item-on_my_way = On My Way
 vc-item-yes = Yes
 
 vc-item-good_game_post_game_all_chat = Good Game [ALL CHAT]
-vc-item-good_job_post_game_all_chat = Good Job (Post Game)
+vc-item-good_job_post_game_all_chat = Good Job [ALL CHAT]
 vc-item-thanks_post_game_all_chat = Thanks (Post Game)
-vc-item-well_played_post_game_all_chat = Well Played (Post Game)
+vc-item-well_played_post_game_all_chat = Well Played [ALL CHAT]
 vc-item-missing = (Enemy) is Missing
 vc-item-pinged_enemy_player = I see (Enemy)
 vc-item-pinged_teammate = Careful (Teammate)
+
+vc-item-going_to_shop = Going to Shop
+vc-item-request_follow = Come with Me!
+vc-item-going_to_gank = Going to Gank
+vc-item-rejuv_drop = Rejuv's Dropping
+vc-item-need_cover = Cover Me
+vc-item-nevermind = Nevermind
+vc-item-no_teamfight = Not Ready For Teamfight
+vc-item-press_the_advantage = Press The Advantage
+vc-item-lets_hide_here = Let's Hide Here
+vc-item-its_dangerous = It's Dangerous
+vc-item-ill_clear_troopers = I'll Clear Troopers
+vc-item-meet_here = Meet Here
+vc-item-flank = I'll Flank
+vc-item-pregame_pings = Pregame Taunt [ALL CHAT]
+vc-item-leave_area = Leave Area
 
 # Custom Menus
 cm-title = Custom Menus
