@@ -3,13 +3,14 @@ function Test-DotNetVersion {
         $dotnetVersion = dotnet --version 2>&1
         Write-Host "Detected .NET version $dotnetVersion"
 
-        if ($dotnetVersion -match '^8\.0\.\d+$') {
+        if ($dotnetVersion -match '^([89]|\d{2,})\.0\.\d+$') {
             return 1
         } else {
+            Write-Error "CLI build error! Version seems to be outdated or improperly formatted."
             return 0
         }
     } catch {
-        Write-Error "CLI build error! Is .NET SDK 8.0 installed and `dotnet` is in your PATH?"
+        Write-Error "CLI build error! Is .NET SDK 8.0+ installed and `dotnet` is in your PATH?"
         return 0
     }
 }
