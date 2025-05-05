@@ -83,17 +83,21 @@ To uninstall the add-on, you can rename or delete the VPK file. You **MUST** als
 
 Entries in this list can not be fixed easily, due to how the chat wheel system of Deadlock works. The list will be updated as Valve fixes them.
 
-- If you removed a custom menu (or uninstalled the add-on), you have to manually unbind the "blank" entries in the game's chat wheel settings. Otherwise, opening the chat wheel will crash your game!
+- Opening the chat wheel can **crash** the game in following scenarios:
+  - A game update caused the `gameinfo.gi` file to reset. Use a mod loader or manually check that `SearchPaths` are up-to-date.
+  - You removed a custom menu without unbinding it from the game's chat wheel settings.
+  - You uninstalled the add-on, but did not unbind custom menus from the game's chat wheel settings.
 - A custom menu can have up to 12 entries, filling up the entire circle.
 - Having multiple menus on the wheel causes the menu to show incorrect contents.
 - Menus sometimes open in the wrong direction, making them unusable. Simply bind them to another direction.
+- Some menu items can't be selected depending on which slot the chat wheel is bound to. See https://github.com/RedMser/ChatLane/issues/58 for a workaround.
 - A placeholder voice line plays when you select a custom menu (when not selecting one of its entries).
 
 For any other bugs, it's either an issue with ChatLane, or a new game update broke the add-on. In either case, feel free to open an issue so that we can figure it out!
 
 # Technical info
 
-Read on for all those developers, contributors and reverse-engineers among you.
+This section is for all the developers, contributors and reverse-engineers among you.
 
 ## Repository structure
 
@@ -113,7 +117,7 @@ If you only wish to compile a part of the project (e.g. just the CLI or just the
 
 ### CLI
 
-You will need [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed. No further preparation is needed.
+You will need [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or newer installed. No further preparation is needed.
 
 ### GUI
 
@@ -131,7 +135,7 @@ ChatLane
           godot.windows.template_release.x86_64.exe
 ```
 
-You must use [**Godot 4.4 dev 6** or newer](https://godotengine.org/download/preview/) to avoid errors in the script files.
+You must use [**Godot 4.4** or newer](https://godotengine.org/download/).
 
 For the releases of ChatLane, a build profile was used. This step is fully optional, but it helps to reduce the export template file size slightly:
 
