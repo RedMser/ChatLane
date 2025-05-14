@@ -120,3 +120,13 @@ func update_items_error():
 			add_error.call("duplicate")
 		
 		item.error_text = "\n".join(errors)
+
+
+func rotate_ccw():
+	var item = %Items.get_child(0)
+	%Items.move_child(item, -1)
+
+
+func rotate_cw():
+	var item = %Items.get_child(-1)
+	%Items.move_child(item, 0)

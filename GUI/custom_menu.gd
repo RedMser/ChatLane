@@ -115,3 +115,21 @@ func update_preview():
 		label = tr(label).replace(" ", "\n")
 		arr.append(label)
 	%Preview.entries = arr
+
+
+func _on_rotate_ccw_pressed() -> void:
+	if custom_menu["items"].is_empty(): return
+	var item = custom_menu["items"].pop_front()
+	custom_menu["items"].push_back(item)
+	%VoiceCommandsList.rotate_ccw()
+	update_preview()
+	Config.has_unsaved_changes = true
+
+
+func _on_rotate_cw_pressed() -> void:
+	if custom_menu["items"].is_empty(): return
+	var item = custom_menu["items"].pop_back()
+	custom_menu["items"].push_front(item)
+	%VoiceCommandsList.rotate_cw()
+	update_preview()
+	Config.has_unsaved_changes = true
