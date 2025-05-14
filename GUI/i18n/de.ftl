@@ -47,14 +47,14 @@ vc-title = Sprachbefehle
 vc-category-default = Standard
 vc-category-hidden = Versteckt
 vc-category-hidden-help = Diese Sprachzeilen können im Spiel verwendet werden, aber sie können standardmäßig nicht als Chatrad-Optionen ausgewählt werden.
-                          Kreuzen Sie das Häkchen an, um die Auswahl im Spielmenü zu ermöglichen.
+                          Aktivieren Sie den Bearbeitungsmodus (oben) und kreuzen Sie die Häkchen an, um die Auswahl im Spielmenü zu ermöglichen.
 vc-category-wip = In Bearbeitung
 vc-category-wip-help = Diese Sprachzeilen sind noch nicht für jeden Charakter vollständig implementiert. Es kann vorkommen, dass nichts zu hören ist, abhängig von deiner Heldenwahl.
-                       Kreuzen Sie das Häkchen an, um sie in den Chatrad-Einstellungen im Spiel auswählen zu können.
+                       Aktivieren Sie den Bearbeitungsmodus (oben) und kreuzen Sie die Häkchen an, um die Auswahl im Spielmenü zu ermöglichen.
 vc-category-broken = Defekt / Intern
 vc-category-broken-help = Einige Sprachzeilen werden intern verwendet (z.B. für den Chat nach dem Spiel) oder funktionieren nicht, wenn sie aus dem Chatrad ausgewählt werden
                           (z. B. Ping-Sprachzeilen, die ein Zielobjekt benötigen).
-                          Kreuzen Sie das Häkchen an, um sie auf eigenes Risiko über die Einstellungen im Spiel auswählbar zu machen.
+                          Aktivieren Sie den Bearbeitungsmodus (oben) und kreuzen Sie die Häkchen an, um auf eigenes Risiko die Auswahl im Spielmenü zu ermöglichen.
 
 vc-delete-tooltip = Sprachbefehl aus diesem Menü löschen.
 vs-bindable-tooltip = Ob dieser Sprachbefehl in den Chatrad-Einstellungen im Spiel auswählbar sein soll.

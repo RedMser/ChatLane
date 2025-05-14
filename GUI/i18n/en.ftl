@@ -47,14 +47,14 @@ vc-title = Voice Commands
 vc-category-default = Default
 vc-category-hidden = Hidden
 vc-category-hidden-help = While these voice lines can be used in game, they can't be selected as Chat Wheel options by default.
-                          Tick the checkbox to allow assigning them in the game settings.
+                          Enable edit mode at the top, then tick the checkboxes to allow assigning them in the game settings.
 vc-category-wip = Work in Progress
 vc-category-wip-help = These voice lines are not fully implemented for every character yet. You may hear nothing when using these, depending on your hero.
-                       Tick the checkbox to allow selecting them in the Chat Wheel settings in-game.
+                       Enable edit mode at the top, then tick the checkboxes to allow assigning them in the game settings.
 vc-category-broken = Broken / Internal
 vc-category-broken-help = Some voice lines are used internally (for post-game chat), or are broken when selected from the chat wheel
                           (e.g. ping voice lines that need a target entity).
-                          Tick the checkbox to allow selecting them via the in-game settings, at your own risk.
+                          Enable edit mode at the top, then tick the checkboxes to allow assigning them in the game settings, at your own risk.
 
 vc-delete-tooltip = Delete voice command from this menu.
 vs-bindable-tooltip = Whether this voice command should be selectable in the chat wheel settings.
