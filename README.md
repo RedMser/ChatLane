@@ -16,6 +16,7 @@ A tool to customize the chat wheel of Valve's game Deadlock:
 
 - Deadlock is in early alpha, so this tool and add-on **may stop working at any moment**.
 - As the tool edits a game file (specifically a script file), I am **not responsible for any bans for users of this tool**. Valve does not have a clear stance on what's fair game when it comes to modding Deadlock yet!
+- Due to a game bug, whenever the game updates (and `gameinfo.gi` file is reset), opening the chat wheel can **crash** your game! You must either patch the `gameinfo.gi` again (as described below), or go to chat wheel options and remove custom menus.
 
 ## Installation and Usage
 
@@ -23,15 +24,18 @@ To get ChatLane, download the [latest release's](https://github.com/redmser/chat
 
 Extract everything somewhere, then run the `ChatLane-GUI.exe` file.
 
+> [!NOTE]
+> On Linux, you can run ChatLane through Wine/Proton.
+
 ![Installation instruction step 1](docs/installation-1.png)
 
-On the left, you have an overview of all voice commands in the game.
-Those with a checkmark are hidden by default, for various reasons (see the corresponding headers in the list for more info).
-You can enable them so that they show up in the "Chat Wheel" settings of Deadlock as additional options.
+On the left half of the program, you have an overview of all voice commands in the game.
+By default, not all of them can be used in the game, but you can change this.
+After enabling edit mode (toggle button at the top), you can pick which of them can be configured in the chat wheel (left checkbox) and for keyboard shortcut binding (right checkbox).
 
 ![Installation instruction step 2](docs/installation-2.png)
 
-On the right you can define custom menus.
+On the right half of the program, you can define custom menus.
 Create a new menu, give it a name and icon, then you can decide what voice lines should be inside.
 Use drag and drop from the left list onto the right box to assign voice lines to the menu. You can also use drag and drop to re-arrange the elements inside the list.
 When in-game, you will see the new custom menus you've created at the bottom of the "Chat Wheel" settings.
