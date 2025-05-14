@@ -9,6 +9,7 @@ const VC_LIST = [
 	{ "id": "Headed To Shop/Base", "enabled": true, "category": "default", "label": "vc-item-headed_to_shop_base", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Help With Idol", "enabled": true, "category": "default", "label": "vc-item-help_with_idol", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Help", "enabled": true, "category": "default", "label": "vc-item-help", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "Leave Area", "enabled": true, "category": "default", "label": "vc-item-leave_area", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Need Heal", "enabled": true, "category": "default", "label": "vc-item-need_heal", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "No", "enabled": true, "category": "default", "label": "vc-item-no", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "On My Way", "enabled": true, "category": "default", "label": "vc-item-on_my_way", "isMenu": false, "bindable": true, "pingWheelBindable": true },
@@ -56,7 +57,6 @@ const VC_LIST = [
 	{ "id": "Meet Here", "enabled": true, "category": "default", "label": "vc-item-meet_here", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Flank", "enabled": true, "category": "default", "label": "vc-item-flank", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Pregame Pings", "enabled": true, "category": "broken", "label": "vc-item-pregame_pings", "isMenu": false, "bindable": false, "pingWheelBindable": false },
-	{ "id": "Leave Area", "enabled": true, "category": "wip", "label": "vc-item-leave_area", "isMenu": false, "bindable": false, "pingWheelBindable": false },
 ]
 
 signal add_voice_command(id: String)
