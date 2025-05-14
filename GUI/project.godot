@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="ChatLane"
+config/description="Tool to customize the chat wheel of Deadlock"
 run/main_scene="res://empty.tscn"
 config/auto_accept_quit=false
 config/features=PackedStringArray("4.4", "GL Compatibility")

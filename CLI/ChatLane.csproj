@@ -17,4 +17,9 @@
     <PackageReference Include="YamlDotNet" Version="16.2.0" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <AssemblyTitle>Tool to customize the chat wheel of Deadlock</AssemblyTitle>
+    <Company>RedMser</Company>
+  </PropertyGroup>
+
 </Project>
