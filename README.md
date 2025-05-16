@@ -91,10 +91,11 @@ Entries in this list can not be fixed easily, due to how the chat wheel system o
   - A game update caused the `gameinfo.gi` file to reset. Use a mod loader or manually check that `SearchPaths` are up-to-date.
   - You removed a custom menu without unbinding it from the game's chat wheel settings.
   - You uninstalled the add-on, but did not unbind custom menus from the game's chat wheel settings.
-- A custom menu can have up to 12 entries, filling up the entire circle.
+- A custom menu can only have up to 12 entries, filling up the entire circle.
+- Custom menu order of items is reversed when you are on the Sapphire team.
 - Having multiple menus on the wheel causes the menu to show incorrect contents.
 - Menus sometimes open in the wrong direction, making them unusable. Simply bind them to another direction.
-- Some menu items can't be selected depending on which slot the chat wheel is bound to. See https://github.com/RedMser/ChatLane/issues/58 for a workaround.
+- Some custom menu items can't be selected depending on which slot the chat wheel is bound to. See https://github.com/RedMser/ChatLane/issues/58 for a workaround.
 - A placeholder voice line plays when you select a custom menu (when not selecting one of its entries).
 
 For any other bugs, it's either an issue with ChatLane, or a new game update broke the add-on. In either case, feel free to open an issue so that we can figure it out!
