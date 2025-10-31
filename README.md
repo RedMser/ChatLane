@@ -122,7 +122,7 @@ If you only wish to compile a part of the project (e.g. just the CLI or just the
 
 ### CLI
 
-You will need [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) or newer installed. No further preparation is needed.
+You will need [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) or newer installed. No further preparation is needed.
 
 ### GUI
 

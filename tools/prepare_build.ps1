@@ -10,7 +10,7 @@ function Test-DotNetVersion {
             return 0
         }
     } catch {
-        Write-Error "CLI build error! Is .NET SDK 8.0+ installed and `dotnet` is in your PATH?"
+        Write-Error "CLI build error! Is .NET SDK 9.0+ installed and `dotnet` is in your PATH?"
         return 0
     }
 }
@@ -54,11 +54,11 @@ try {
     New-Item -Path . -Name "build" -ItemType Directory
 
     # The CLI export does not always include dependency DLLs (compiler bug?) - force re-creating files!
-    Remove-Item "CLI\bin\Release\net8.0\win-x64\publish\" -Recurse -ErrorAction Ignore
+    Remove-Item "CLI\bin\Release\net9.0\win-x64\publish\" -Recurse -ErrorAction Ignore
 
     if (Test-DotNetVersion -eq 1) {
         dotnet publish CLI
-        Copy-Item -Recurse "CLI\bin\Release\net8.0\win-x64\publish" "build\cli"
+        Copy-Item -Recurse "CLI\bin\Release\net9.0\win-x64\publish" "build\cli"
     }
 
     if (Test-GodotWindowsExecutables -eq 1) {
