@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text;
+using KVType = ValveKeyValue.KVValueType;
 using ValveResourceFormat.Serialization.KeyValues;
 
 // This would not have been possible without the reverse engineering efforts from
@@ -57,17 +58,15 @@ public class WriteBinaryKV3 : IDisposable
     {
         switch (value.Type)
         {
-            case KVType.ARRAY:
-            case KVType.ARRAY_TYPED:
-            case KVType.ARRAY_TYPE_BYTE_LENGTH:
+            case KVType.Array:
                 NumArrays++;
                 LoadObject((KVObject)value.Value);
                 break;
-            case KVType.OBJECT:
+            case KVType.Collection:
                 NumObjects++;
                 LoadObject((KVObject)value.Value);
                 break;
-            case KVType.STRING:
+            case KVType.String:
                 LoadString((string)value.Value);
                 break;
         }
@@ -109,7 +108,7 @@ public class WriteBinaryKV3 : IDisposable
         writer.Write((ushort)0);
 
         IntWriter.Write(StringValues.Count);
-        WriteValue(new KVValue(KVType.OBJECT, KeyValuesRoot));
+        WriteValue(new KVValue(KVType.Collection, KeyValuesRoot));
 
         // Counts
         writer.Write(0u); // TODO byteBuffer?
@@ -157,13 +156,33 @@ public class WriteBinaryKV3 : IDisposable
 
     public void WriteType(BinaryWriter writer, KVType type, KVFlag flag = KVFlag.None)
     {
+        var typeOut = type switch
+        {
+            KVType.Null => (byte)1, // NULL
+            KVType.Boolean => (byte)2, // BOOLEAN
+            KVType.Int64 => (byte)3, // INT64
+            KVType.UInt64 => (byte)4, // UINT64
+            KVType.FloatingPoint64 => (byte)5, // DOUBLE
+            KVType.String => (byte)6, // STRING
+            KVType.BinaryBlob => (byte)7, // BINARY_BLOB
+            KVType.Array => (byte)8, // ARRAY
+            KVType.Collection => (byte)9, // OBJECT
+            KVType.Int32 => (byte)11, // INT32
+            KVType.UInt32 => (byte)12, // UINT32
+            KVType.FloatingPoint => (byte)19, // FLOAT
+            KVType.Int16 => (byte)20, // INT16
+            KVType.UInt16 => (byte)21, // UINT16
+            // KVType.Pointer => (byte)23, // INT32_AS_BYTE
+            _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unsupported KVType: {type}"),
+        };
+
         if (flag == KVFlag.None)
         {
-            writer.Write((byte)type);
+            writer.Write(typeOut);
         }
         else
         {
-            writer.Write((byte)type | 0x80);
+            writer.Write((byte)(typeOut | 0x80));
             writer.Write((byte)flag);
         }
     }
@@ -180,47 +199,6 @@ public class WriteBinaryKV3 : IDisposable
         }
     }
 
-    protected static KVValue SimplifyValue(KVValue value)
-    {
-        switch (value.Type)
-        {
-            case KVType.BOOLEAN:
-                var boolean = (bool)value.Value;
-                if (boolean)
-                {
-                    return new KVValue(KVType.BOOLEAN_TRUE, true);
-                }
-                else
-                {
-                    return new KVValue(KVType.BOOLEAN_FALSE, false);
-                }
-            case KVType.INT64:
-                var i64 = (long)value.Value;
-                if (i64 == 0)
-                {
-                    return new KVValue(KVType.INT64_ZERO, 0);
-                }
-                else if (i64 == 1)
-                {
-                    return new KVValue(KVType.INT64_ONE, 1);
-                }
-                break;
-            case KVType.DOUBLE:
-                var d = (double)value.Value;
-                var epsilon = 0.0001;
-                if (Math.Abs(d) < epsilon)
-                {
-                    return new KVValue(KVType.DOUBLE_ZERO, 0.0);
-                }
-                else if (d > (1.0 - epsilon) && d < (1.0 + epsilon))
-                {
-                    return new KVValue(KVType.DOUBLE_ONE, 1.0);
-                }
-                break;
-        }
-        return value;
-    }
-
     public static KVValue MakeValue(object value)
     {
         switch (value.GetType().Name)
@@ -232,7 +210,7 @@ public class WriteBinaryKV3 : IDisposable
                 {
                     kv.AddProperty(null, MakeValue(item));
                 }
-                return new KVValue(KVType.ARRAY, kv);
+                return new KVValue(KVType.Array, kv);
             }
             case "Dictionary`2": {
                 var dict = (Dictionary<object, object>)value;
@@ -241,44 +219,52 @@ public class WriteBinaryKV3 : IDisposable
                 {
                     kv.AddProperty(prop.Key.ToString(), MakeValue(prop.Value));
                 }
-                return new KVValue(KVType.OBJECT, kv);
+                return new KVValue(KVType.Collection, kv);
             }
-            case "String": return new KVValue(KVType.STRING, (string)value);
-            case "Boolean": return new KVValue(KVType.BOOLEAN, (bool)value);
-            case "Int32": return new KVValue(KVType.INT32, (int)value);
-            case "Double": return new KVValue(KVType.DOUBLE, (double)value);
             case "KVValue": return (KVValue)value;
             case "KVObject": {
                 var obj = (KVObject)value;
-                return new KVValue(obj.IsArray ? KVType.ARRAY : KVType.OBJECT, obj);
+                return new KVValue(obj.IsArray ? KVType.Array : KVType.Collection, obj);
             }
+            default: return new KVValue(value);
         }
-        throw new NotImplementedException($"MakeValue for type {value.GetType().Name}");
     }
 
     public void WriteValue(KVValue value, bool writeType = true)
     {
         if (writeType)
         {
-            value = SimplifyValue(value);
-            WriteType(TypeWriter, value.Type);
+            // TODO: could re-add the 0.0 and 1.0 double optimizations here
+            switch (value.Type)
+            {
+                case KVType.Boolean: {
+                    if ((bool)value.Value)
+                    {
+                        TypeWriter.Write((byte)13); // BOOLEAN_TRUE
+                    }
+                    else
+                    {
+                        TypeWriter.Write((byte)14); // BOOLEAN_FALSE
+                    }
+                    break;
+                }
+                default: {
+                    WriteType(TypeWriter, value.Type);
+                    break;
+                }
+            }
         }
 
         switch (value.Type)
         {
-            case KVType.NULL:
-            case KVType.INT64_ZERO:
-            case KVType.INT64_ONE:
-            case KVType.DOUBLE_ZERO:
-            case KVType.DOUBLE_ONE:
-            case KVType.BOOLEAN_FALSE:
-            case KVType.BOOLEAN_TRUE:
+            case KVType.Null:
+            case KVType.Boolean:
                 // EZ
                 break;
-            case KVType.STRING:
+            case KVType.String:
                 WriteString(IntWriter, (string)value.Value);
                 break;
-            case KVType.OBJECT:
+            case KVType.Collection:
                 var obj = (KVObject)value.Value;
                 IntWriter.Write(obj.Count);
                 foreach (var prop in obj.Properties)
@@ -287,19 +273,19 @@ public class WriteBinaryKV3 : IDisposable
                     WriteValue(prop.Value);
                 }
                 break;
-            case KVType.INT32:
+            case KVType.Int32:
                 IntWriter.Write((int)value.Value);
                 break;
-            case KVType.UINT32:
+            case KVType.UInt32:
                 IntWriter.Write((uint)value.Value);
                 break;
-            case KVType.INT64:
+            case KVType.Int64:
                 DoubleWriter.Write((long)value.Value);
                 break;
-            case KVType.DOUBLE:
+            case KVType.FloatingPoint64:
                 DoubleWriter.Write((double)value.Value);
                 break;
-            case KVType.ARRAY: {
+            case KVType.Array: {
                 var arr = (KVObject)value.Value;
                 IntWriter.Write(arr.Count);
                 foreach (var prop in arr)
