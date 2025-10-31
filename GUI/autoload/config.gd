@@ -65,8 +65,10 @@ func load_cfg(yaml: String) -> void:
 	# migrate old voice command ids
 	for menu in custom_menus:
 		for i in menu["items"].size():
-			if menu["items"][i] == "You're Welcome":
-				menu["items"][i] = "You\\'re Welcome"
+			if menu["items"][i] == "You\\'re Welcome":
+				menu["items"][i] = "You're Welcome"
+			elif menu["items"][i] == "I\\'ll Clear Troopers":
+				menu["items"][i] = "I'll Clear Troopers"
 	
 	is_loading = true
 	loaded.emit()

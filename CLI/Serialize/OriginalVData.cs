@@ -6,7 +6,7 @@ public static class OriginalVData
 {
     public static KVObject GetData()
     {
-        // scripts/ping_wheel_messages.vdata extracted at 9th May 2025.
+        // scripts/ping_wheel_messages.vdata extracted at 31st October 2025.
         var contents = """
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
@@ -462,7 +462,7 @@ public static class OriginalVData
 		]
 		m_strIcon = "file://{images}/hud/ping/ping_icon_help.svg"
 	}
-	"You\'re Welcome" = 
+	"You're Welcome" = 
 	{
 		m_unPingWheelOptionID = 44
 		m_ePingConcept = "CITADEL_PING_YOURE_WELCOME"
@@ -587,7 +587,7 @@ public static class OriginalVData
 		m_bPingWheelBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_ATTACK"
 	}
-	"I\'ll Clear Troopers" = 
+	"I'll Clear Troopers" = 
 	{
 		m_unPingWheelOptionID = 56
 		m_ePingConcept = "CITADEL_PING_CLEAR_TROOPERS"
