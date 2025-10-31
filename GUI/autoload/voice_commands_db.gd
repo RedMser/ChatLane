@@ -20,7 +20,7 @@ const VC_LIST = [
 	{ "id": "Thanks", "category": "default", "label": "vc-item-thanks", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Need Plan", "category": "default", "label": "vc-item-need_plan", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Yes", "category": "default", "label": "vc-item-yes", "isMenu": false, "bindable": true, "pingWheelBindable": true },
-	{ "id": "You\\'re Welcome", "category": "default", "label": "vc-item-youre_welcome", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "You're Welcome", "category": "default", "label": "vc-item-youre_welcome", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 
 	{ "id": "Defend Blue", "category": "hidden", "label": "vc-item-defend_blue", "isMenu": false, "bindable": false, "pingWheelBindable": true },
 	{ "id": "Defend Green", "category": "hidden", "label": "vc-item-defend_green", "isMenu": false, "bindable": false, "pingWheelBindable": true },
@@ -53,7 +53,7 @@ const VC_LIST = [
 	{ "id": "Press The Advantage", "category": "default", "label": "vc-item-press_the_advantage", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Lets Hide Here", "category": "default", "label": "vc-item-lets_hide_here", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Its Dangerous", "category": "default", "label": "vc-item-its_dangerous", "isMenu": false, "bindable": true, "pingWheelBindable": true },
-	{ "id": "I\\'ll Clear Troopers", "category": "default", "label": "vc-item-ill_clear_troopers", "isMenu": false, "bindable": true, "pingWheelBindable": true },
+	{ "id": "I'll Clear Troopers", "category": "default", "label": "vc-item-ill_clear_troopers", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Meet Here", "category": "default", "label": "vc-item-meet_here", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Flank", "category": "default", "label": "vc-item-flank", "isMenu": false, "bindable": true, "pingWheelBindable": true },
 	{ "id": "Pregame Pings", "category": "broken", "label": "vc-item-pregame_pings", "isMenu": false, "bindable": false, "pingWheelBindable": false },

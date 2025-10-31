@@ -6,7 +6,7 @@ public static class OriginalVData
 {
     public static KVObject GetData()
     {
-        // scripts/ping_wheel_messages.vdata extracted at 9th May 2025.
+        // scripts/ping_wheel_messages.vdata extracted at 31st October 2025.
         var contents = """
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
@@ -462,7 +462,7 @@ public static class OriginalVData
 		]
 		m_strIcon = "file://{images}/hud/ping/ping_icon_help.svg"
 	}
-	"You\'re Welcome" = 
+	"You're Welcome" = 
 	{
 		m_unPingWheelOptionID = 44
 		m_ePingConcept = "CITADEL_PING_YOURE_WELCOME"
@@ -587,7 +587,7 @@ public static class OriginalVData
 		m_bPingWheelBindable = true
 		m_ePingWheelSoundType = "CITADEL_PING_WHEEL_SOUND_ATTACK"
 	}
-	"I\'ll Clear Troopers" = 
+	"I'll Clear Troopers" = 
 	{
 		m_unPingWheelOptionID = 56
 		m_ePingConcept = "CITADEL_PING_CLEAR_TROOPERS"
@@ -636,44 +636,8 @@ public static class OriginalVData
 }
 """;
 
-        // HACK: workaround for KV3 parser bug, remove once fixed: https://github.com/ValveResourceFormat/ValveResourceFormat/issues/858
-        var matches = Regex.Matches(contents, @"^\t"".+?""", RegexOptions.Multiline);
-        foreach (var match in matches.ToList())
-        {
-            contents = contents.Remove(match.Index, match.Length).Insert(match.Index, match.Value.Replace(" ", "$"));
-        }
-        // END OF HACK
-
         using var stream = new MemoryStream(Encoding.UTF8.GetBytes(contents));
         var kv = KeyValues3.ParseKVFile(stream);
-
-        // HACK: workaround for KV3 parser bug, remove once fixed: https://github.com/ValveResourceFormat/ValveResourceFormat/issues/858
-        var propsToRemap = new List<string>();
-        foreach (var prop in kv.Root.Properties)
-        {
-            if (prop.Key.Contains('$'))
-            {
-                propsToRemap.Add(prop.Key);
-            }
-        }
-        foreach (var prop in propsToRemap)
-        {
-            var value = kv.Root.Properties[prop];
-            var newKey = prop.Replace("$", " ").Replace("\"", "");
-            if (value.Value is KVObject obj && obj.Key == prop)
-            {
-                var newObj = new KVObject(newKey, obj.IsArray, obj.Count);
-                foreach (var copy in obj.Properties)
-                {
-                    newObj.AddProperty(copy.Key, copy.Value);
-                }
-                value = new KVValue(value.Type, newObj);
-            }
-            kv.Root.Properties.Remove(prop);
-            kv.Root.Properties.Add(newKey, value);
-        }
-        // END OF HACK
-
         return kv.Root;
     }
 }
